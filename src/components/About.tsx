@@ -14,14 +14,14 @@ const About: React.FC = () => {
   const skills = [
     "Node.js", "Python/Django", "React", "Next.js", "Docker", 
     "Kubernetes", "Kafka", "WebSockets", "MongoDB", "Postgres", 
-    "Prisma ORM", "TypeScript", "JavaScript", "Nuxt.js", "AWS"
+    "Prisma ORM", "TypeScript", "JavaScript", "Nuxt.js", "AWS", "firebase", "Redis"
   ];
   
   const experiences = [
     {
-      role: "Head of Tech Division",
+      role: "Senion Software Manager",
       company: "DoWell UX Living Lab",
-      period: "Jun 2024 – Present",
+      period: "Jan 2025 – Present",
       description: "Overseeing product and technology development, managing cross-functional teams, and driving strategic innovation."
     },
     {

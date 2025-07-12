@@ -14,74 +14,126 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Replace this with your actual Google Apps Script Web App URL
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNfPnU5sEqJ9ck671Cv0xH-Psfp8kQQe_R8nPuSgKVoBqie4eKXqBxwlcT1TJK_aWc/exec';
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, you would send the form data to a backend
-    console.log('Form submitted:', formData);
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: '', email: '', message: '' });
+    
+    // Validation: At least email or phone must be provided
+    if (!formData.email.trim() && !formData.phone.trim()) {
+      toast.error("Please provide either an email address or phone number.");
+      return;
+    }
+    
+    // Validate email format if provided
+    if (formData.email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        toast.error("Please enter a valid email address.");
+        return;
+      }
+    }
+    
+    // Validate phone format if provided (basic validation)
+    if (formData.phone.trim()) {
+      const phoneRegex = /^[+]?[1-9][\d]{0,15}$/;
+      const cleanPhone = formData.phone.replace(/[\s\-()]/g, '');
+      if (!phoneRegex.test(cleanPhone)) {
+        toast.error("Please enter a valid phone number.");
+        return;
+      }
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      // Since we're using no-cors mode, we can't read the response
+      // but if no error is thrown, we assume success
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("Failed to send message. Please try again or contact me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
-    <section id="contact" className="section-padding bg-gray-50">
-      <div className="container mx-auto container-padding">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-2 px-3 py-1 bg-gray-200 rounded-full text-xs font-medium uppercase tracking-wider">
-            Get in Touch
-          </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+    <section id="contact" className="section-padding">
+      <div className="container mx-auto container-padding max-w-4xl">
+        <div className="text-center mb-20">
+          <p className="text-sm font-medium text-muted-foreground tracking-wide uppercase mb-4">
+            Contact
+          </p>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-6">
             Let's Connect
           </h2>
-          <p className="max-w-lg mx-auto text-gray-600">
-            Have a project in mind or want to discuss potential collaborations? I'd love to hear from you.
+          <p className="max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+            Have a project in mind or want to discuss collaborations? 
+            Let's explore how we can work together.
           </p>
         </div>
         
-        <div ref={ref} className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div 
             className={cn(
               "opacity-0 transform -translate-x-10 transition-all duration-700", 
               inView && "opacity-100 translate-x-0"
             )}
           >
-            <div className="glass-morphism rounded-xl p-8 h-full">
-              <h3 className="font-serif text-2xl font-semibold mb-6">Contact Information</h3>
+            <div className="minimal-card p-8 rounded-sm h-full">
+              <h3 className="text-xl font-medium mb-8 tracking-tight">Contact Information</h3>
               
               <div className="space-y-6">
                 <div className="flex items-center">
-                  <Mail className="mr-4 text-gray-700" size={20} />
-                  <a href="mailto:mdashsharma95@gmail.com" className="text-gray-700 hover:text-black transition-colors">
+                  <Mail className="mr-4 text-muted-foreground" size={18} />
+                  <a href="mailto:mdashsharma95@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
                     mdashsharma95@gmail.com
                   </a>
                 </div>
                 
                 <div className="flex items-center">
-                  <Github className="mr-4 text-gray-700" size={20} />
+                  <Github className="mr-4 text-muted-foreground" size={18} />
                   <a 
                     href="https://github.com/manishdashsharma" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-black transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     manishdashsharma
                   </a>
                 </div>
                 
                 <div className="flex items-center">
-                  <Linkedin className="mr-4 text-gray-700" size={20} />
+                  <Linkedin className="mr-4 text-muted-foreground" size={18} />
                   <a 
                     href="https://www.linkedin.com/in/manish-dash-sharma-0082b8185/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-black transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Manish Dash Sharma
                   </a>
@@ -89,16 +141,11 @@ const Contact: React.FC = () => {
               </div>
               
               <div className="mt-12">
-                <h4 className="font-serif text-lg font-semibold mb-4">Let's build something amazing together</h4>
-                <p className="text-gray-600">
-                  I'm always open to discussing new projects, innovative ideas, or opportunities to be part of your vision.
+                <h4 className="text-lg font-medium mb-4 tracking-tight">Let's build something amazing</h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Always open to discussing new projects, innovative ideas, 
+                  and opportunities to create impactful solutions together.
                 </p>
-                
-                <div className="mt-8">
-                  <svg width="200" height="80" viewBox="0 0 200 80">
-                    <path d="M20,40 C40,10 60,70 80,30 C100,60 120,20 140,50 C160,30 180,50 190,40" className="stroke-animation" fill="none" stroke="black" strokeWidth="2" />
-                  </svg>
-                </div>
               </div>
             </div>
           </div>
@@ -110,12 +157,12 @@ const Contact: React.FC = () => {
             )}
             style={{ transitionDelay: "0.2s" }}
           >
-            <form onSubmit={handleSubmit} className="glass-morphism rounded-xl p-8">
-              <h3 className="font-serif text-2xl font-semibold mb-6">Send Me a Message</h3>
+            <form onSubmit={handleSubmit} className="minimal-card p-8 rounded-sm">
+              <h3 className="text-xl font-medium mb-8 tracking-tight">Send a Message</h3>
               
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Name
                   </label>
                   <input
@@ -125,14 +172,14 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-colors"
+                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors bg-card"
                     placeholder="Your name"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    Email <span className="text-muted-foreground text-xs">(Email or Phone required)</span>
                   </label>
                   <input
                     type="email"
@@ -140,14 +187,28 @@ const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-colors"
-                    placeholder="Your email"
+                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors bg-card"
+                    placeholder="your.email@example.com"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    Phone <span className="text-muted-foreground text-xs">(Email or Phone required)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors bg-card"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
                   <textarea
@@ -157,17 +218,18 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors resize-none bg-card"
                     placeholder="Your message"
                   />
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full py-3 px-6 bg-black text-white rounded-lg flex items-center justify-center gap-2 transition-transform hover:-translate-y-1"
+                  disabled={isSubmitting}
+                  className="w-full py-3 px-6 bg-primary text-primary-foreground rounded-sm flex items-center justify-center gap-2 transition-colors hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
-                  <Send size={16} />
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  <Send size={14} />
                 </button>
               </div>
             </form>

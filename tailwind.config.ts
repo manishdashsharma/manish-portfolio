@@ -2,7 +2,6 @@
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -65,8 +64,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				serif: ['Playfair Display', 'serif'],
-				sans: ['DM Sans', 'sans-serif'],
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

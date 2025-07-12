@@ -26,17 +26,16 @@ const Navbar: React.FC = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
+        'fixed top-0 w-full z-50 transition-all duration-200',
         isScrolled 
-          ? 'py-3 bg-white/80 backdrop-blur-md shadow-sm' 
-          : 'py-5 bg-transparent'
+          ? 'py-4 bg-white/95 backdrop-blur-sm border-b border-border/50' 
+          : 'py-6 bg-transparent'
       )}
     >
       <div className="container mx-auto container-padding flex items-center justify-between">
         <a href="#home" className="z-50">
-          <span className="font-serif text-black text-xl md:text-2xl font-bold tracking-tight">
-            Manish
-            <span className="inline-block w-2 h-2 ml-1 bg-black rounded-full" />
+          <span className="font-medium text-foreground text-lg tracking-tight">
+            Manish Sharma
           </span>
         </a>
 
@@ -47,7 +46,7 @@ const Navbar: React.FC = () => {
               <li key={link.name}>
                 <a 
                   href={link.href} 
-                  className="link-underline text-sm font-medium text-black transition-colors hover:text-gray-600"
+                  className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
                 >
                   {link.name}
                 </a>
@@ -58,27 +57,23 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden z-50 text-black" 
+          className="md:hidden z-50 text-foreground" 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMobileMenuOpen ? (
-            <X size={24} className="animate-fade-in" />
-          ) : (
-            <Menu size={24} />
-          )}
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-white flex flex-col items-center justify-center animate-fade-in md:hidden">
+          <div className="fixed inset-0 bg-background flex flex-col items-center justify-center md:hidden">
             <nav>
-              <ul className="flex flex-col items-center gap-8">
+              <ul className="flex flex-col items-center gap-6">
                 {navLinks.map((link) => (
-                  <li key={link.name} className="animate-fade-in-right" style={{ animationDelay: `${navLinks.indexOf(link) * 0.1}s` }}>
+                  <li key={link.name}>
                     <a 
                       href={link.href} 
-                      className="font-serif text-2xl font-medium text-black"
+                      className="text-xl font-medium text-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}

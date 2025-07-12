@@ -293,35 +293,34 @@ const Projects: React.FC = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className="section-padding bg-gray-50"
+      className="section-padding"
     >
-      <div className="container mx-auto container-padding">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-2 px-3 py-1 bg-gray-200 rounded-full text-xs font-medium uppercase tracking-wider">
-            Portfolio
-          </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+      <div className="container mx-auto container-padding max-w-6xl">
+        <div className="text-center mb-20">
+          <p className="text-sm font-medium text-muted-foreground tracking-wide uppercase mb-4">
+            Selected Work
+          </p>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-6">
             Featured Projects
           </h2>
-          <p className="max-w-lg mx-auto text-gray-600">
-            Explore a collection of my most impactful work, showcasing my
-            expertise in building scalable applications and innovative
-            solutions.
+          <p className="max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+            A collection of projects showcasing expertise in full-stack development, 
+            cloud infrastructure, and scalable application design.
           </p>
         </div>
 
         <div
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {projectsData.slice(0, visibleProjects).map((project, index) => (
             <div
               key={project.title}
               className={cn(
-                "opacity-0 transform translate-y-10 transition-all duration-700",
+                "opacity-0 transform translate-y-4 transition-all duration-500",
                 inView && "opacity-100 translate-y-0"
               )}
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              style={{ transitionDelay: `${index * 0.05}s` }}
             >
               <ProjectCard
                 title={project.title}
@@ -338,13 +337,13 @@ const Projects: React.FC = () => {
         </div>
 
         {visibleProjects < projectsData.length && (
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <button
-              className="inline-flex items-center gap-2 px-6 py-2 border border-black rounded-full transition-all hover:bg-black hover:text-white"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-primary transition-all hover:bg-primary hover:text-primary-foreground"
               onClick={handleViewMore}
             >
-              View more projects
-              <ChevronDown size={16} className="animate-bounce" />
+              View More
+              <ChevronDown size={16} />
             </button>
           </div>
         )}

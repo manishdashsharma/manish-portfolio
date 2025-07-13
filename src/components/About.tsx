@@ -25,7 +25,7 @@ const About: React.FC = () => {
       description: "Overseeing product and technology development, managing cross-functional teams, and driving strategic innovation."
     },
     {
-      role: "Senion Software Manager",
+      role: "Senior Software Manager",
       company: "DoWell Research Singapore",
       period: "May 2022 – Jan 2024",
       description: "Led technical projects, coordinated with international teams, and implemented best engineering practices."

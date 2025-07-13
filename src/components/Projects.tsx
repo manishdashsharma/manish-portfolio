@@ -60,17 +60,6 @@ const Projects: React.FC = () => {
       rating: 4,
     },
     {
-      title: "Church Light House",
-      description:
-        "A complete platform for church event management, announcements, and congregation engagement.",
-      techStack: ["Node.js", "Flutter", "MongoDB", "Firebase"],
-      clientMessage:
-        "This platform has revolutionized how we communicate with our congregation and manage our events.",
-      longDescription:
-        "ChurchLightHouse provides religious organizations with tools to manage events, publish announcements, and engage with their congregation. The platform includes features like prayer request management, volunteer coordination, and sermon archives.",
-      rating: 5,
-    },
-    {
       title: "Promptly",
       description:
         "A versatile Discord bot for automating event reminders and announcements.",

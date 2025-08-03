@@ -34,9 +34,10 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto container-padding flex items-center justify-between">
         <a href="#home" className="z-50">
-          <span className="font-medium text-foreground text-lg tracking-tight">
-            Manish Sharma
-          </span>
+          <div className="font-serif text-xl font-bold">
+              Manish
+              <span className="inline-block w-2 h-2 ml-1 bg-black rounded-full" />
+            </div>
         </a>
 
         {/* Desktop Menu */}

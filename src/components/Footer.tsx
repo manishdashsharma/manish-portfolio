@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <div className="font-serif text-xl font-bold">
-              Manish Dash Sharma
+              Manish
               <span className="inline-block w-2 h-2 ml-1 bg-black rounded-full" />
             </div>
             <p className="text-sm text-gray-600 mt-2">

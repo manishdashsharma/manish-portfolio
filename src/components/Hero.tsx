@@ -18,8 +18,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-              Building scalable solutions with Node.js, Python, React, and cloud infrastructure. 
-              Passionate about clean code and innovative engineering.
+              Architecting AI-powered systems that scale. From GenAI integrations to full-stack solutions—turning complex problems into elegant code.
             </p>
           </div>
           

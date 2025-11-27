@@ -23,6 +23,22 @@ const Projects: React.FC = () => {
 
   const projectsData: ProjectData[] = [
     {
+      title: "Colabrix (Building...)",
+      description:
+        "Your AI copilot for project management. Automate workflows, predict bottlenecks, and ship faster with intelligent task orchestration and real-time team sync.",
+      techStack: [
+        "Node.js",
+        "Next.js",
+        "React",
+        "GenAI",
+        "Socket.io",
+        "GitHub Integration",
+      ],
+      longDescription:
+        "Imagine a project management tool that thinks like your best teammate. Colabrix uses cutting-edge AI to automatically prioritize tasks, predict project risks, and suggest optimal workflows based on your team's patterns. With real-time collaboration powered by WebSockets, seamless GitHub integration for developer workflows, and intelligent insights that actually move the needle, Colabrix eliminates the busywork so your team can focus on building great products. No more status meetings, no more missed deadlines—just pure productivity.",
+      rating: 0,
+    },
+    {
       title: "Tradescribe.in",
       description:
         "A stock data management and analysis platform designed to help users track, manage, and analyze market data efficiently.",
@@ -42,13 +58,70 @@ const Projects: React.FC = () => {
       rating: 4,
     },
     {
-      title: "Room Spa",
+      title: "Spyke-AI",
       description:
-        "A comprehensive spa management system that streamlines appointment booking, service management, and client tracking.",
-      techStack: ["Python-Django", "React", "Flutter", "Socket.io", "Docker"],
+        "The platform features a complete ecosystem where sellers upload premium prompts and automation tools, users discover and purchase digital solutions, and admins manage the thriving marketplace — all powered by cutting-edge technology for seamless transactions and instant downloads",
+      techStack: [
+        "Node.js",
+        "Next.js",
+        "Docker",
+        "MongoDB",
+        "Twilio",
+        "Firebase",
+      ],
+      liveLink: "http://spykeai.com/",
       longDescription:
-        "RoomSpa is an end-to-end spa management solution that helps spa owners and managers streamline their operations. The system handles appointment scheduling, employee management, inventory tracking, and customer relationship management in one integrated platform.",
+        "Spyke-AI is a comprehensive marketplace platform that enables sellers to upload and monetize premium prompts and automation tools. Users can discover and purchase digital solutions while admins oversee the marketplace operations. The platform features seamless transactions, instant downloads, and a robust ecosystem powered by cutting-edge technology to facilitate the exchange of AI-driven digital products.",
       rating: 5,
+    },
+    {
+      title: "Petsu",
+      description: "Caring Vets, Healthy Pets - Trust Us",
+      techStack: ["Node.js", "Next.js", "Docker", "MongoDB"],
+      liveLink: "https://petsu.in/",
+      longDescription:
+        "Petsu is a comprehensive veterinary platform that connects pet owners with qualified veterinarians. The platform facilitates appointment scheduling, health record management, and provides trusted veterinary care services to ensure the health and wellbeing of pets.",
+      rating: 5,
+    },
+    {
+      title: "Whisper AI",
+      description: "Enterprise-grade speech-to-text that runs on your infrastructure. Zero cloud dependencies, infinite scalability, maximum privacy.",
+      techStack: ["Python", "Flask", "Docker", "OpenAI Whisper"],
+      liveLink: "https://github.com/manishdashsharma/whisper-open-ai.git",
+      longDescription: "Stop paying per minute for transcriptions. Whisper AI is a production-ready, self-hosted API that turns audio into text with jaw-dropping accuracy across 99+ languages. Built with OpenAI's state-of-the-art Whisper model, containerized for instant deployment, and designed to handle everything from podcast episodes to customer calls. Your data stays yours, your costs stay predictable, and your transcriptions stay flawless.",
+      rating: 5,
+    },
+    {
+      title: "VerbIQ",
+      description: "Never take meeting notes again. AI extracts decisions, action items, and insights from your calls—automatically.",
+      techStack: ["Next.js", "OpenAI GPT-4", "Whisper AI"],
+      liveLink: "https://verbiq.manishdashsharma.site/",
+      longDescription: "What if every meeting came with a personal assistant who captured every decision, tracked every commitment, and summarized the key insights? VerbIQ does exactly that. Upload your recording, and GPT-4 instantly extracts action items, sentiment, key decisions, and next steps. No more scrambling through hour-long transcripts or forgetting who committed to what. Just crystal-clear meeting intelligence that turns talk into action.",
+      rating: 4,
+    },
+    {
+      title: "ChangelogCraft",
+      description: "Ship updates that users actually read. Beautiful, animated changelogs that turn release notes into marketing moments.",
+      techStack: ["Next.js", "Markdown", "Tailwind CSS", "Framer Motion"],
+      liveLink: "https://github.com/manishdashsharma/AI-Code-Reviewer.git",
+      longDescription: "Release notes don't have to be boring. ChangelogCraft transforms your updates into stunning, animated experiences that users love to read. Write in simple Markdown, get a gorgeous changelog with smooth Framer Motion animations, responsive design, and professional polish. Perfect for SaaS products, developer tools, and anyone who ships features worth celebrating. Make every release feel like a product launch.",
+      rating: 4,
+    },
+    {
+      title: "EasyMeet",
+      description: "Video calls without the friction. Crystal-clear HD, instant screen sharing, and zero downloads—just click and connect.",
+      techStack: ["Next.js", "Stream.io SDK"],
+      liveLink: "https://github.com/manishdashsharma/EasyMeet.git",
+      longDescription: "Tired of clunky video conferencing tools? EasyMeet strips away the complexity and delivers what you actually need: HD video, crisp audio, instant screen sharing, and real-time chat—all in your browser. No downloads, no account required for guests, no 40-minute limits. Built with Stream.io's enterprise-grade infrastructure and Next.js for lightning-fast performance. Perfect for quick team syncs, client calls, or remote presentations.",
+      rating: 4
+    },
+    {
+      title: "Queryly (Building...)",
+      description: "Upload your notes, get instant quizzes. AI that turns any PDF, lecture, or textbook into personalized practice tests.",
+      techStack: ["Node.js", "OpenAI GPT-4", "React Native"],
+      liveLink: "https://github.com/manishdashsharma/Queryly.git",
+      longDescription: "Study smarter, not harder. Queryly uses a multi-agent AI system to digest your PDFs, lecture notes, and study materials, then generates intelligent quizzes tailored to your learning style. Whether you're prepping for exams, teaching a class, or mastering a new skill, Queryly creates practice questions that actually test understanding—not just memorization. Available on mobile so you can learn anywhere, anytime.",
+      rating: 0,
     },
     {
       title: "Nessa",
@@ -57,6 +130,16 @@ const Projects: React.FC = () => {
       techStack: ["Node.js", "React", "MongoDB", "Docker"],
       longDescription:
         "Nessa is an e-commerce platform specializing in sustainable lighting solutions. The platform includes product customization tools, energy savings calculators, and international shipping logistics to serve customers across more than 20 countries.",
+      rating: 4,
+    },
+    {
+      title: "Rabt-Naturals",
+      description:
+        "Rabt | Natural making sure your skin gets Good Better and Best",
+      techStack: ["Node.js", "Next.js", "Docker", "MongoDB"],
+      liveLink: "https://rabtnaturals.com/",
+      longDescription:
+        "Rabt-Naturals is a premium skincare e-commerce platform dedicated to providing natural and organic skincare products. The platform ensures customers receive the highest quality natural products with a focus on skin health and wellness. Features include product catalogs, customer reviews, secure payment processing, and personalized skincare recommendations.",
       rating: 4,
     },
     {
@@ -79,93 +162,6 @@ const Projects: React.FC = () => {
         "WoodLog uses computer vision technology to automatically count and measure logs from images, saving postal officers significant time in inventory management. The solution processes images in real-time and generates detailed reports.",
       rating: 4,
     },
-    
-    {
-      title: "Scoopie",
-      description:
-        "A social media app connecting people through interactive content.",
-      techStack: [
-        "Node.js",
-        "MongoDB",
-        "Flutter",
-        "Prisma",
-        "TypeScript",
-        "Tailwind",
-      ],
-      longDescription:
-        "Scoopie is a social media platform focused on interactive content sharing. The app features story-based content, interactive polls, and community-driven challenges to foster engagement among users.",
-      rating: 5,
-    },
-    {
-      title: "TaskForge",
-      description:
-        "An open-source project management and issue-tracking tool designed to enhance team collaboration and productivity.",
-      techStack: ["Node.js", "React", "TypeScript", "GitHub API"],
-      liveLink: "https://github.com/manishdashsharma/TaskForge",
-      longDescription:
-        "TaskForge is an open-source project management tool that helps development teams track issues, manage projects, and collaborate efficiently. The tool integrates with GitHub to provide seamless code and issue management.",
-      rating: 4,
-    },
-    {
-      title: "Secure Repository",
-      description:
-        "A secure backup system utilizing GitHub Actions for automated backups post-merge, ensuring data integrity and safety.",
-      techStack: ["Python-Django", "React", "MongoDB", "GitHub Actions"],
-      longDescription:
-        "Secure Repository provides organizations with a reliable backup solution that automatically creates secure backups after code merges. The system ensures data integrity and provides easy recovery options in case of data loss.",
-      rating: 3,
-    },
-    {
-      title: "Samanta Business Analyzer",
-      description:
-        "A business analysis tool performing SWOT analysis and integrating with Google Maps API and Gemini AI.",
-      techStack: ["Django", "React", "Google Maps API", "Gemini AI"],
-      liveLink: "https://samantaanalysis.uxlivinglab.online/",
-      longDescription:
-        "Samanta Business Analyzer helps businesses conduct comprehensive SWOT analyses and market research. The tool leverages Google Maps API for location-based insights and Gemini AI for predictive analytics and recommendation generation.",
-      rating: 4,
-    },
-    {
-      title: "Scale Feedback System",
-      description:
-        "A customizable feedback collection platform enabling users to select scales and generate reports.",
-      techStack: ["Node.js", "Django", "React", "Docker"],
-      liveLink: "https://www.scales.uxlivinglab.online/voc/",
-      clientMessage:
-        "This system has transformed our feedback collection process and provided valuable insights for our business.",
-      longDescription:
-        "Scale Feedback System is a versatile platform that allows organizations to create customized feedback forms with various scaling options. The system generates comprehensive reports and analytics to help businesses understand and act on customer feedback.",
-      rating: 5,
-    },
-    {
-      title: "Q App",
-      description:
-        "A restaurant solution enabling customers to book orders, call waiters, and pay online via QR code.",
-      techStack: ["Django", "React", "Docker", "Socket.io", "WebRTC"],
-      longDescription:
-        "Q App revolutionizes restaurant service by allowing customers to scan a QR code at their table to browse the menu, place orders, call waiters, and complete payments online. It improves efficiency and enhances the dining experience.",
-      rating: 4,
-    },
-    {
-      title: "Dowell Credit System",
-      description:
-        "A credit handling system for DoWell UX Living Lab's product APIs.",
-      techStack: ["Django", "React", "Razorpay", "Stripe"],
-      longDescription:
-        "Dowell Credit System manages credits for all product API modules in DoWell UX Living Lab. Users can buy credits, activate product APIs before use, and track their transactions efficiently.",
-      rating: 4,
-    },
-    {
-      title: "My Fridge",
-      description:
-        "A smart storage solution that tracks fridge contents and expiry dates using QR codes.",
-      techStack: ["Node.js", "BullMQ", "Flutter Flow", "MongoDB"],
-      longDescription:
-        "My Fridge helps users manage stored food by assigning master QR codes to containers. The app tracks expiry dates, sends notifications, and helps reduce food waste.",
-      rating: 5,
-    },
-    
-    
     {
       title: "EasyTechDBManager",
       description:
@@ -177,56 +173,10 @@ const Projects: React.FC = () => {
       rating: 4,
     },
     {
-      title: "College Finder Bot",
-      description:
-        "A Python bot that helps users find nearby colleges based on location and course interests.",
-      techStack: ["Python", "NLP", "Geopy", "Flask"],
-      liveLink: "https://github.com/manishdashsharma/college-finder-bot",
-      longDescription:
-        "College Finder Bot is a Python script designed to help users discover nearby colleges based on their location and course preferences. The bot leverages natural language processing (NLP) to interpret user queries and utilizes geospatial calculations to determine proximity to relevant institutions, providing accurate and personalized results.",
-      rating: 4,
-    },
-    {
-      title: "Petsu",
-      description: "Caring Vets, Healthy Pets - Trust Us",
-      techStack: ["Node.js", "Next.js", "Docker", "MongoDB"],
-      liveLink: "https://petsu.in/",
-      longDescription:
-        "Petsu is a comprehensive veterinary platform that connects pet owners with qualified veterinarians. The platform facilitates appointment scheduling, health record management, and provides trusted veterinary care services to ensure the health and wellbeing of pets.",
-      rating: 5,
-    },
-    {
-      title: "Spyke-AI",
-      description:
-        "The platform features a complete ecosystem where sellers upload premium prompts and automation tools, users discover and purchase digital solutions, and admins manage the thriving marketplace — all powered by cutting-edge technology for seamless transactions and instant downloads",
-      techStack: [
-        "Node.js",
-        "Next.js",
-        "Docker",
-        "MongoDB",
-        "Twilio",
-        "Firebase",
-      ],
-      liveLink: "http://spykeai.com/",
-      longDescription:
-        "Spyke-AI is a comprehensive marketplace platform that enables sellers to upload and monetize premium prompts and automation tools. Users can discover and purchase digital solutions while admins oversee the marketplace operations. The platform features seamless transactions, instant downloads, and a robust ecosystem powered by cutting-edge technology to facilitate the exchange of AI-driven digital products.",
-      rating: 5,
-    },
-    {
-      title: "LeadEdge",
-      description:
-        "LeadEdge is a modern B2B CRM platform designed to give businesses a sharp edge in managing leads, campaigns, and sales teams. Admins can create and track campaigns, manage marketing personnel, assign leads, and monitor performance — all in one powerful, intuitive system built for growth.",
-      techStack: ["Node.js", "Next.js", "Docker", "MongoDB"],
-      liveLink: "https://leadedge.easytechinnovate.site/",
-      longDescription:
-        "LeadEdge is a cutting-edge B2B CRM platform engineered to provide businesses with a competitive advantage in lead management, campaign execution, and sales team coordination. The platform empowers administrators to create and monitor marketing campaigns, manage marketing personnel, distribute leads efficiently, and track performance metrics. Built with an intuitive interface and powerful analytics, LeadEdge streamlines the entire sales process from lead generation to conversion.",
-      rating: 5,
-    },
-    {
       title: "QuickPoll Public",
       description: "Create polls in 30 seconds, get results in real-time.",
       techStack: ["Node.js", "Next.js", "Docker", "MongoDB", "NextAuth"],
-      liveLink: "https://quickpoll.manishdashsharma.site/",
+      liveLink: "https://github.com/manishdashsharma/QuickPoll.git",
       longDescription:
         "QuickPoll Public is a fast and efficient polling platform that enables users to create comprehensive polls in just 30 seconds and receive real-time results. The platform features user authentication, instant poll creation, real-time data visualization, and seamless sharing capabilities, making it perfect for quick decision-making, surveys, and gathering public opinion.",
       rating: 4,
@@ -250,15 +200,43 @@ const Projects: React.FC = () => {
       rating: 4,
     },
     {
-      title: "Rabt-Naturals",
+      title: "Secure Repository",
       description:
-        "Rabt | Natural making sure your skin gets Good Better and Best",
-      techStack: ["Node.js", "Next.js", "Docker", "MongoDB"],
-      liveLink: "https://rabtnaturals.com/",
+        "A secure backup system utilizing GitHub Actions for automated backups post-merge, ensuring data integrity and safety.",
+      techStack: ["Python-Django", "React", "MongoDB", "GitHub Actions"],
       longDescription:
-        "Rabt-Naturals is a premium skincare e-commerce platform dedicated to providing natural and organic skincare products. The platform ensures customers receive the highest quality natural products with a focus on skin health and wellness. Features include product catalogs, customer reviews, secure payment processing, and personalized skincare recommendations.",
+        "Secure Repository provides organizations with a reliable backup solution that automatically creates secure backups after code merges. The system ensures data integrity and provides easy recovery options in case of data loss.",
+      rating: 3,
+    },
+    {
+      title: "Dowell Credit System",
+      description:
+        "A credit handling system for DoWell UX Living Lab's product APIs.",
+      techStack: ["Django", "React", "Razorpay", "Stripe"],
+      longDescription:
+        "Dowell Credit System manages credits for all product API modules in DoWell UX Living Lab. Users can buy credits, activate product APIs before use, and track their transactions efficiently.",
       rating: 4,
     },
+    {
+      title: "My Fridge",
+      description:
+        "A smart storage solution that tracks fridge contents and expiry dates using QR codes.",
+      techStack: ["Node.js", "BullMQ", "Flutter Flow", "MongoDB"],
+      longDescription:
+        "My Fridge helps users manage stored food by assigning master QR codes to containers. The app tracks expiry dates, sends notifications, and helps reduce food waste.",
+      rating: 5,
+    },
+    {
+      title: "College Finder Bot",
+      description:
+        "A Python bot that helps users find nearby colleges based on location and course interests.",
+      techStack: ["Python", "NLP", "Geopy", "Flask"],
+      liveLink: "https://github.com/manishdashsharma/college-finder-bot",
+      longDescription:
+        "College Finder Bot is a Python script designed to help users discover nearby colleges based on their location and course preferences. The bot leverages natural language processing (NLP) to interpret user queries and utilizes geospatial calculations to determine proximity to relevant institutions, providing accurate and personalized results.",
+      rating: 4,
+    },
+
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);

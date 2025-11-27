@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter, Globe } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -35,6 +35,24 @@ const Footer: React.FC = () => {
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
+            </a>
+            <a
+              href="https://x.com/manishdsharma08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-black transition-colors"
+              aria-label="X (Twitter)"
+            >
+              <Twitter size={20} />
+            </a>
+            <a
+              href="https://easytechinnovate.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-black transition-colors"
+              aria-label="Website"
+            >
+              <Globe size={20} />
             </a>
             <a
               href="mailto:mdashsharma95@gmail.com"

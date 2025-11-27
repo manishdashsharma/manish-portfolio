@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Send, Github, Linkedin, Mail } from 'lucide-react';
+import { Send, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { toast } from 'sonner';
 
@@ -129,13 +129,25 @@ const Contact: React.FC = () => {
                 
                 <div className="flex items-center">
                   <Linkedin className="mr-4 text-muted-foreground" size={18} />
-                  <a 
-                    href="https://www.linkedin.com/in/manish-dash-sharma-0082b8185/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.linkedin.com/in/manish-dash-sharma-0082b8185/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Manish Dash Sharma
+                  </a>
+                </div>
+
+                <div className="flex items-center">
+                  <Twitter className="mr-4 text-muted-foreground" size={18} />
+                  <a
+                    href="https://x.com/manishdsharma08"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    @manishdsharma08
                   </a>
                 </div>
               </div>
@@ -143,8 +155,17 @@ const Contact: React.FC = () => {
               <div className="mt-12">
                 <h4 className="text-lg font-medium mb-4 tracking-tight">Let's build something amazing</h4>
                 <p className="text-muted-foreground leading-relaxed">
-                  Always open to discussing new projects, innovative ideas, 
-                  and opportunities to create impactful solutions together.
+                  Always open to discussing new projects, innovative ideas,
+                  and opportunities to create impactful solutions together with{" "}
+                  <a
+                    href="https://easytechinnovate.site/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline font-medium"
+                  >
+                    EasyTechInnovate
+                  </a>
+                  .
                 </p>
               </div>
             </div>

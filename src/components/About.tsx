@@ -12,9 +12,9 @@ const About: React.FC = () => {
   });
   
   const skills = [
-    "Node.js", "Python/Django", "React", "Next.js", "Docker", 
-    "Kubernetes", "Kafka", "WebSockets", "MongoDB", "Postgres", 
-    "Prisma ORM", "TypeScript", "JavaScript", "Nuxt.js", "AWS", "firebase", "Redis"
+    "GenAI","Node.js", "Python/Django", "React", "Next.js", "Docker", 
+    "Kubernetes", "Kafka", "WebSockets", "MongoDB", "Postgres",  
+    "Prisma ORM", "TypeScript", "JavaScript", "AWS", "firebase", "Redis","Git/Github"
   ];
   
   const experiences = [

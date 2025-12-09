@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://manishdashsharma.site/sitemap.xml
+Sitemap: https://manishdashsharma.com/sitemap.xml

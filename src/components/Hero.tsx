@@ -14,7 +14,16 @@ const Hero: React.FC = () => {
             </p>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight">
-              Manish Dash Sharma
+              <span className="relative inline-block">
+                M
+                <span className="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 w-8 h-8 md:w-10 md:h-10">
+                  <span className="block w-full h-full bg-red-600 rounded-b-full relative">
+                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 md:w-4 md:h-4 bg-white rounded-full"></span>
+                    <span className="absolute bottom-0 left-0 right-0 h-1.5 md:h-2 bg-white rounded-full"></span>
+                  </span>
+                </span>
+              </span>
+              anish Dash Sharma
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">

@@ -76,7 +76,7 @@ const About: React.FC = () => {
                   )} 
                   style={{ transitionDelay: `${index * 0.03}s` }}
                 >
-                  <span className="text-xs font-mono px-3 py-1 bg-muted border border-border/50 text-muted-foreground rounded-sm">
+                  <span className="text-xs font-medium px-3 py-1.5 bg-secondary/50 border border-border/50 text-secondary-foreground rounded-md hover:bg-secondary hover:border-border transition-colors cursor-default">
                     {skill}
                   </span>
                 </div>
@@ -85,12 +85,12 @@ const About: React.FC = () => {
             
             <div 
               className={cn(
-                "minimal-card p-6 rounded-sm opacity-0 transform translate-y-4 transition-all duration-500", 
+                "bg-card rounded-xl border border-border/40 p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:-translate-y-1 opacity-0 transform translate-y-4", 
                 inView && "opacity-100 translate-y-0"
               )} 
               style={{ transitionDelay: "0.6s" }}
             >
-              <h4 className="text-lg font-medium mb-4 tracking-tight">
+              <h4 className="text-xl font-semibold mb-4 tracking-tight">
                 Philosophy
               </h4>
               <p className="text-muted-foreground mb-4 leading-relaxed">
@@ -105,7 +105,7 @@ const About: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-medium mb-8 tracking-tight">
+            <h3 className="text-2xl font-semibold mb-8 tracking-tight">
               Professional Experience
             </h3>
             
@@ -119,14 +119,14 @@ const About: React.FC = () => {
                   )} 
                   style={{ transitionDelay: `${index * 0.2}s` }}
                 >
-                  <div className="absolute left-0 top-0 w-3 h-3 border border-foreground rounded-full bg-background"></div>
+                  <div className="absolute left-0 top-1.5 w-3 h-3 border-2 border-primary rounded-full bg-background z-10"></div>
                   {index < experiences.length - 1 && (
-                    <div className="absolute left-1 top-3 w-0.5 h-full -ml-px bg-border"></div>
+                    <div className="absolute left-1.5 top-4 w-0.5 h-full -ml-px bg-border/60"></div>
                   )}
                   
-                  <div className="mb-1 text-xs text-muted-foreground font-mono">{exp.period}</div>
-                  <h4 className="font-medium">{exp.role}</h4>
-                  <div className="text-sm text-muted-foreground mb-2">{exp.company}</div>
+                  <div className="mb-1 text-xs text-primary/80 font-mono font-medium">{exp.period}</div>
+                  <h4 className="font-semibold text-lg">{exp.role}</h4>
+                  <div className="text-sm text-foreground/70 mb-2 font-medium">{exp.company}</div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{exp.description}</p>
                 </div>
               ))}
@@ -134,12 +134,12 @@ const About: React.FC = () => {
             
             <div 
               className={cn(
-                "minimal-card p-6 rounded-sm mt-8 opacity-0 transform translate-y-4 transition-all duration-500", 
+                "bg-card rounded-xl border border-border/40 p-8 mt-10 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:-translate-y-1 opacity-0 transform translate-y-4", 
                 inView && "opacity-100 translate-y-0"
               )} 
               style={{ transitionDelay: "0.8s" }}
             >
-              <h4 className="text-lg font-medium mb-4 tracking-tight">
+              <h4 className="text-xl font-semibold mb-4 tracking-tight">
                 Cloud & Infrastructure
               </h4>
               <p className="text-muted-foreground leading-relaxed">

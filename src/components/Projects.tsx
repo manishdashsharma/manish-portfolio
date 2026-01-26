@@ -296,18 +296,8 @@ const Projects: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const handleViewMore = () => {
-    // Show 4 more projects when the button is clicked
+    // Show 6 more projects when the button is clicked
     setVisibleProjects((prev) => Math.min(prev + 6, projectsData.length));
-
-    // Scroll to the newly visible projects
-    if (visibleProjects < projectsData.length) {
-      setTimeout(() => {
-        sectionRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 100);
-    }
   };
 
   return (

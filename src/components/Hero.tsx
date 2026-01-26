@@ -25,10 +25,10 @@ const Hero: React.FC = () => {
           <div className="flex justify-center pt-8">
             <a 
               href="#projects" 
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground border border-primary transition-all hover:bg-primary/90"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground rounded-full transition-all hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5"
             >
               View Work
-              <ArrowDown size={16} />
+              <ArrowDown size={18} />
             </a>
           </div>
         </div>

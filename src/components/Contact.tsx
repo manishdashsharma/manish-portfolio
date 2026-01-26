@@ -104,64 +104,72 @@ const Contact: React.FC = () => {
               inView && "opacity-100 translate-x-0"
             )}
           >
-            <div className="minimal-card p-8 rounded-sm h-full">
-              <h3 className="text-xl font-medium mb-8 tracking-tight">Contact Information</h3>
+            <div className="bg-card rounded-xl border border-border/40 p-8 h-full transition-all duration-300 hover:border-primary/20 hover:shadow-lg">
+              <h3 className="text-2xl font-semibold mb-8 tracking-tight">Contact Information</h3>
               
               <div className="space-y-6">
-                <div className="flex items-center">
-                  <Mail className="mr-4 text-muted-foreground" size={18} />
-                  <a href="mailto:mdashsharma95@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                <div className="flex items-center group">
+                  <div className="p-2.5 rounded-full bg-secondary/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors mr-4">
+                    <Mail size={18} />
+                  </div>
+                  <a href="mailto:mdashsharma95@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
                     mdashsharma95@gmail.com
                   </a>
                 </div>
                 
-                <div className="flex items-center">
-                  <Github className="mr-4 text-muted-foreground" size={18} />
+                <div className="flex items-center group">
+                  <div className="p-2.5 rounded-full bg-secondary/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors mr-4">
+                    <Github size={18} />
+                  </div>
                   <a 
                     href="https://github.com/manishdashsharma" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors font-medium"
                   >
                     manishdashsharma
                   </a>
                 </div>
                 
-                <div className="flex items-center">
-                  <Linkedin className="mr-4 text-muted-foreground" size={18} />
+                <div className="flex items-center group">
+                  <div className="p-2.5 rounded-full bg-secondary/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors mr-4">
+                    <Linkedin size={18} />
+                  </div>
                   <a
                     href="https://www.linkedin.com/in/manish-dash-sharma-0082b8185/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors font-medium"
                   >
                     Manish Dash Sharma
                   </a>
                 </div>
 
-                <div className="flex items-center">
-                  <Twitter className="mr-4 text-muted-foreground" size={18} />
+                <div className="flex items-center group">
+                  <div className="p-2.5 rounded-full bg-secondary/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors mr-4">
+                    <Twitter size={18} />
+                  </div>
                   <a
                     href="https://x.com/manishdsharma08"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors font-medium"
                   >
                     @manishdsharma08
                   </a>
                 </div>
               </div>
               
-              <div className="mt-12">
-                <h4 className="text-lg font-medium mb-4 tracking-tight">Let's build something amazing</h4>
-                <p className="text-muted-foreground leading-relaxed">
+              <div className="mt-12 p-6 bg-secondary/30 rounded-lg border border-border/50">
+                <h4 className="text-lg font-semibold mb-3 tracking-tight">Let's build something amazing</h4>
+                <p className="text-muted-foreground leading-relaxed text-sm">
                   Always open to discussing new projects, innovative ideas,
                   and opportunities to create impactful solutions together with{" "}
                   <a
                     href="https://easytechinnovate.site/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:underline font-medium"
+                    className="text-primary hover:underline font-semibold"
                   >
                     EasyTechInnovate
                   </a>
@@ -178,10 +186,10 @@ const Contact: React.FC = () => {
             )}
             style={{ transitionDelay: "0.2s" }}
           >
-            <form onSubmit={handleSubmit} className="minimal-card p-8 rounded-sm">
-              <h3 className="text-xl font-medium mb-8 tracking-tight">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="bg-card rounded-xl border border-border/40 p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-lg">
+              <h3 className="text-2xl font-semibold mb-8 tracking-tight">Send a Message</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Name
@@ -193,14 +201,14 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors bg-card"
+                    className="w-full px-4 py-3 border border-border/60 rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary/50 outline-none transition-all bg-secondary/20 hover:bg-secondary/40"
                     placeholder="Your name"
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email <span className="text-muted-foreground text-xs">(Email or Phone required)</span>
+                    Email <span className="text-muted-foreground text-xs font-normal ml-1">(Email or Phone required)</span>
                   </label>
                   <input
                     type="email"
@@ -208,14 +216,14 @@ const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors bg-card"
+                    className="w-full px-4 py-3 border border-border/60 rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary/50 outline-none transition-all bg-secondary/20 hover:bg-secondary/40"
                     placeholder="your.email@example.com"
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone <span className="text-muted-foreground text-xs">(Email or Phone required)</span>
+                    Phone <span className="text-muted-foreground text-xs font-normal ml-1">(Email or Phone required)</span>
                   </label>
                   <input
                     type="tel"
@@ -223,7 +231,7 @@ const Contact: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors bg-card"
+                    className="w-full px-4 py-3 border border-border/60 rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary/50 outline-none transition-all bg-secondary/20 hover:bg-secondary/40"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
@@ -239,7 +247,7 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground outline-none transition-colors resize-none bg-card"
+                    className="w-full px-4 py-3 border border-border/60 rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary/50 outline-none transition-all resize-none bg-secondary/20 hover:bg-secondary/40"
                     placeholder="Your message"
                   />
                 </div>
@@ -247,10 +255,10 @@ const Contact: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 px-6 bg-primary text-primary-foreground rounded-sm flex items-center justify-center gap-2 transition-colors hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-3.5 px-6 bg-primary text-primary-foreground rounded-lg flex items-center justify-center gap-2 transition-all hover:bg-primary/90 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed font-medium mt-2"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
-                  <Send size={14} />
+                  <Send size={16} />
                 </button>
               </div>
             </form>

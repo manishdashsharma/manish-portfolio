@@ -28,16 +28,16 @@ const Navbar: React.FC = () => {
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-200',
         isScrolled 
-          ? 'py-4 bg-white/95 backdrop-blur-sm border-b border-border/50' 
+          ? 'py-4 bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm' 
           : 'py-6 bg-transparent'
       )}
     >
       <div className="container mx-auto container-padding flex items-center justify-between">
         <a href="#home" className="z-50">
-          <div className="font-serif text-xl font-bold">
-              Manish
-              <span className="inline-block w-2 h-2 ml-1 bg-black rounded-full" />
-            </div>
+          <div className="font-serif text-xl font-bold flex items-center">
+            Manish
+            <span className="inline-block w-2 h-2 ml-1 bg-primary rounded-full animate-pulse" />
+          </div>
         </a>
 
         {/* Desktop Menu */}
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
               <li key={link.name}>
                 <a 
                   href={link.href} 
-                  className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+                  className="text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:bg-secondary/50 px-3 py-2 rounded-md"
                 >
                   {link.name}
                 </a>

@@ -85,7 +85,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     return createPortal(
       <div 
         className={cn(
-          "fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 modal-overlay",
+          "fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 modal-overlay",
           modalActive && "active"
         )}
         onClick={handleModalBackgroundClick}
@@ -96,67 +96,72 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div 
           ref={modalRef}
           className={cn(
-            "bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-content",
+            "bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-content shadow-2xl border border-border/10",
             modalActive && "active"
           )}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="sticky top-0 bg-card p-6 border-b border-border/20 flex justify-between items-center z-10">
+          <div className="sticky top-0 bg-background/80 backdrop-blur-md p-6 border-b border-border/10 flex justify-between items-center z-10">
             <h2 
               id={`modal-title-${title.replace(/\s+/g, '-').toLowerCase()}`}
-              className="text-xl font-medium tracking-tight"
+              className="text-xl font-semibold tracking-tight text-foreground"
             >
               {title}
             </h2>
             <button 
               onClick={closeModal}
-              className="p-2 hover:bg-muted transition-colors rounded-sm"
+              className="p-2 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-full"
               aria-label="Close modal"
             >
-              <X size={16} />
+              <X size={18} />
             </button>
           </div>
           
-          <div className="p-6">
+          <div className="p-6 space-y-8">
             {/* Rating */}
             {rating > 0 && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">Project Rating</h3>
-                <div className="flex items-center">
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Project Rating</h3>
+                <div className="flex items-center gap-2">
+                  <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      size={20}
-                      className={i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}
+                      size={18}
+                      className={cn(
+                        "mr-0.5",
+                        i < rating ? "fill-amber-400 text-amber-400" : "fill-muted text-muted"
+                      )}
                     />
                   ))}
-                  <span className="ml-2 text-sm text-gray-600">{rating} out of 5</span>
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{rating}.0</span>
                 </div>
               </div>
             )}
             
             {/* Full Description */}
-            <div className="mb-6">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">Description</h3>
-              <p className="text-gray-600">{longDescription || description}</p>
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">About</h3>
+              <p className="text-foreground/90 leading-relaxed text-base">{longDescription || description}</p>
             </div>
             
             {/* Client Message */}
             {clientMessage && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">Client Feedback</h3>
-                <blockquote className="italic text-gray-600 border-l-4 border-gray-200 pl-4 py-2">
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Client Feedback</h3>
+                <div className="bg-muted/50 p-4 rounded-lg border-l-4 border-primary/20 italic text-muted-foreground">
                   "{clientMessage}"
-                </blockquote>
+                </div>
               </div>
             )}
             
             {/* Tech Stack */}
-            <div className="mb-6">
-              <h3 className="text-sm font-medium text-foreground mb-3">Technology Stack</h3>
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Technology Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {techStack.map((tech) => (
-                  <span key={tech} className="text-xs font-mono px-3 py-1 bg-muted text-muted-foreground rounded-sm">
+                  <span key={tech} className="text-xs font-medium px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md border border-secondary">
                     {tech}
                   </span>
                 ))}
@@ -165,12 +170,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             
             {/* Live Link */}
             {liveLink && (
-              <div>
+              <div className="pt-4">
                 <a 
                   href={liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all shadow-sm hover:shadow"
                 >
                   Visit Project <ExternalLink size={14} />
                 </a>
@@ -186,40 +191,56 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <>
       <div 
-        className="minimal-card p-6 rounded-sm h-full group"
+        className="group relative flex flex-col h-full bg-card rounded-xl border border-border/40 p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:-translate-y-1"
       >
-        <div className="mb-4 flex items-start justify-between">
-          <h3 className="font-medium text-lg tracking-tight leading-tight">{title}</h3>
+        <div className="mb-5 flex items-start justify-between">
+          <div className="space-y-1">
+            <h3 className="font-semibold text-xl tracking-tight text-foreground group-hover:text-primary transition-colors">
+              {title}
+            </h3>
+            <div className="h-0.5 w-0 bg-primary/20 group-hover:w-full transition-all duration-500 ease-out" />
+          </div>
           {liveLink && (
-            <a href={liveLink} target="_blank" rel="noopener noreferrer" className="opacity-0 group-hover:opacity-100 transition-opacity">
-              <ExternalLink size={16} className="text-muted-foreground hover:text-foreground" />
+            <a 
+              href={liveLink} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-muted-foreground hover:text-primary transition-colors p-1"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ExternalLink size={18} />
             </a>
           )}
         </div>
         
-        <p className="text-muted-foreground text-sm mb-6 leading-relaxed line-clamp-3">{description}</p>
+        <p className="text-muted-foreground text-sm mb-6 leading-relaxed line-clamp-3 flex-grow">
+          {description}
+        </p>
         
-        <div className="flex flex-wrap gap-2 mb-6">
-          {techStack.slice(0, 3).map((tech) => (
-            <span key={tech} className="text-xs font-mono px-2 py-1 bg-muted text-muted-foreground rounded-sm">
-              {tech}
+        <div className="mt-auto space-y-5">
+          <div className="flex flex-wrap gap-1.5">
+            {techStack.slice(0, 3).map((tech) => (
+              <span key={tech} className="text-[10px] font-medium px-2 py-1 bg-secondary/50 text-secondary-foreground rounded-md border border-border/50">
+                {tech}
+              </span>
+            ))}
+            {techStack.length > 3 && (
+              <span className="text-[10px] font-medium px-2 py-1 bg-secondary/50 text-secondary-foreground rounded-md border border-border/50">
+                +{techStack.length - 3}
+              </span>
+            )}
+          </div>
+          
+          <button 
+            onClick={openModal}
+            className="w-full flex items-center justify-between text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors pt-4 border-t border-border/40"
+          >
+            <span>View Details</span>
+            <span className="bg-secondary rounded-full p-1 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+              <ArrowRight size={12} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
             </span>
-          ))}
-          {techStack.length > 3 && (
-            <span className="text-xs font-mono px-2 py-1 bg-muted text-muted-foreground rounded-sm">
-              +{techStack.length - 3}
-            </span>
-          )}
+          </button>
         </div>
-        
-        <button 
-          onClick={openModal}
-          className="flex items-center text-xs font-medium text-muted-foreground hover:text-foreground transition-colors group/button"
-          style={{ background: "transparent", border: "none", padding: 0 }}
-        >
-          <span>View Details</span>
-          <ArrowRight size={12} className="ml-1 transition-transform group-hover/button:translate-x-1" />
-        </button>
       </div>
 
       {/* Modal Portal */}

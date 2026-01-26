@@ -23,6 +23,60 @@ const Projects: React.FC = () => {
 
   const projectsData: ProjectData[] = [
     {
+      title: "ConsensusAI",
+      description:
+        "When one AI isn't enough. Orchestrate GPT-4, Claude, Gemini, and Grok to debate, evaluate, and synthesize the most well-reasoned answers through collective intelligence.",
+      techStack: [
+        "FastAPI",
+        "React",
+        "Vite",
+        "OpenAI",
+        "Claude",
+        "Gemini",
+        "Grok",
+      ],
+      liveLink: "https://github.com/manishdashsharma/ConsensusAI.git",
+      longDescription:
+        "What happens when the world's most powerful AI models work together instead of competing? ConsensusAI orchestrates a three-stage collaborative process: multiple leading LLMs (GPT-4, Claude, Gemini, Grok) independently respond to your query, then anonymously peer-review each other's answers, and finally synthesize a unified consensus response. The result? Answers that are more nuanced, well-reasoned, and reliable than any single model could provide. Full transparency lets you see how each model contributed to the final answer.",
+      rating: 5,
+    },
+    {
+      title: "MediBot",
+      description:
+        "Your AI health companion that understands symptoms, explains medications, and provides wellness guidance—powered by OpenAI and Gemini.",
+      techStack: ["JavaScript", "Python", "OpenAI", "Google Gemini", "CSS"],
+      liveLink: "https://github.com/manishdashsharma/Medibot.git",
+      longDescription:
+        "Healthcare information should be accessible to everyone. MediBot is an intelligent health assistant that helps you understand symptoms, learn about medications, get wellness tips, and access general health information through natural conversation. Powered by advanced AI models from OpenAI and Google Gemini, it provides thoughtful, well-researched responses while always recommending professional medical consultation for serious concerns. Multi-provider AI integration ensures reliable and comprehensive health guidance.",
+      rating: 4,
+    },
+    {
+      title: "TalkDoc",
+      description:
+        "Turn boring documentation into engaging audio explanations. AI-powered voice synthesis that makes your markdown sound human.",
+      techStack: ["Python", "OpenAI TTS", "Docker", "FFmpeg", "Shell"],
+      liveLink: "https://github.com/manishdashsharma/TalkDoc.git",
+      longDescription:
+        "Documentation doesn't have to be a chore. TalkDoc transforms your markdown files into professional audio explanations that sound like a knowledgeable colleague walking you through concepts—not a robot reading text. With 6 different AI voices, intelligent markdown parsing that handles code blocks and tables gracefully, and Docker-powered audio processing, TalkDoc makes technical documentation accessible for commutes, workouts, or anyone who learns better by listening.",
+      rating: 4,
+    },
+    {
+      title: "Deployment Handbook",
+      description:
+        "The ultimate guide to shipping code to production. From zero to deployed on Ubuntu VPS with Nginx, Docker, SSL, and CI/CD.",
+      techStack: [
+        "Nginx",
+        "Docker",
+        "Let's Encrypt",
+        "GitHub Actions",
+        "Ubuntu",
+      ],
+      liveLink: "https://github.com/manishdashsharma/deployment-handbook.git",
+      longDescription:
+        "Stop Googling 'how to deploy Node.js to VPS' every time. The Deployment Handbook is a comprehensive, battle-tested guide covering everything from initial server setup to production-grade deployments. Learn Nginx configuration, SSL certificates with Let's Encrypt, Docker containerization, multi-environment setups, GitHub Actions CI/CD, webhook automation, and operational monitoring. Whether you're deploying Node.js, Python, or Go applications, this handbook has you covered.",
+      rating: 4,
+    },
+    {
       title: "Colabrix (Building...)",
       description:
         "Your AI copilot for project management. Automate workflows, predict bottlenecks, and ship faster with intelligent task orchestration and real-time team sync.",
@@ -95,7 +149,7 @@ const Projects: React.FC = () => {
       title: "VerbIQ",
       description: "Never take meeting notes again. AI extracts decisions, action items, and insights from your calls—automatically.",
       techStack: ["Next.js", "OpenAI GPT-4", "Whisper AI"],
-      liveLink: "https://verbiq.manishdashsharma.site/",
+      liveLink: "https://github.com/manishdashsharma/verbiq.git",
       longDescription: "What if every meeting came with a personal assistant who captured every decision, tracked every commitment, and summarized the key insights? VerbIQ does exactly that. Upload your recording, and GPT-4 instantly extracts action items, sentiment, key decisions, and next steps. No more scrambling through hour-long transcripts or forgetting who committed to what. Just crystal-clear meeting intelligence that turns talk into action.",
       rating: 4,
     },

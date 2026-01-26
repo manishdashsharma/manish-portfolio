@@ -88,6 +88,7 @@ const Projects: React.FC = () => {
         "Socket.io",
         "GitHub Integration",
       ],
+      liveLink: "https://colabrix.com",
       longDescription:
         "Imagine a project management tool that thinks like your best teammate. Colabrix uses cutting-edge AI to automatically prioritize tasks, predict project risks, and suggest optimal workflows based on your team's patterns. With real-time collaboration powered by WebSockets, seamless GitHub integration for developer workflows, and intelligent insights that actually move the needle, Colabrix eliminates the busywork so your team can focus on building great products. No more status meetings, no more missed deadlines—just pure productivity.",
       rating: 0,

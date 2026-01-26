@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '../lib/utils';
 import { Menu, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +27,36 @@ const Navbar: React.FC = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    if (href.startsWith('/')) {
+      navigate(href);
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      navigate(`/${href}`);
+      return;
+    }
+
+    // Smooth scroll for hash links on home page
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header
       className={cn(
@@ -34,7 +67,7 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className="container mx-auto container-padding flex items-center justify-between">
-        <a href="#home" className="z-50">
+        <a href="/" onClick={handleLogoClick} className="z-50">
           <div className="font-serif text-xl font-bold flex items-center">
             Manish
             <span className="inline-block w-2 h-2 ml-1 bg-primary rounded-full animate-pulse" />
@@ -47,7 +80,8 @@ const Navbar: React.FC = () => {
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a 
-                  href={link.href} 
+                  href={link.href}
+                  onClick={(e) => handleNavigation(e, link.href)}
                   className="text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:bg-secondary/50 px-3 py-2 rounded-md"
                 >
                   {link.name}
@@ -74,9 +108,9 @@ const Navbar: React.FC = () => {
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <a 
-                      href={link.href} 
+                      href={link.href}
+                      onClick={(e) => handleNavigation(e, link.href)}
                       className="text-xl font-medium text-foreground"
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
                     </a>

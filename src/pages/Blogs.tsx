@@ -31,27 +31,27 @@ const Blogs: React.FC = () => {
       </Helmet>
       <Navbar />
       
-      <main className="flex-grow pt-24 pb-20">
-        <div className="container mx-auto container-padding max-w-6xl">
-          <div className="text-center mb-16">
-            <p className="text-sm font-medium text-muted-foreground tracking-wide uppercase mb-4">
+      <main className="flex-grow pt-28 pb-24">
+        <div className="container mx-auto container-padding max-w-7xl">
+          <div className="text-center mb-20">
+            <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-5">
               Insights & Thoughts
             </p>
-            <h1 className="text-4xl md:text-5xl font-light tracking-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               Blog
             </h1>
-            <p className="max-w-2xl mx-auto text-muted-foreground leading-relaxed text-lg mb-8">
+            <p className="max-w-2xl mx-auto text-muted-foreground leading-relaxed text-lg mb-10">
               Exploring the frontiers of AI, software engineering, and the future of tech.
             </p>
 
             {/* Search Bar */}
-            <div className="max-w-md mx-auto relative group">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <div className="max-w-lg mx-auto relative group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
               </div>
               <input
                 type="text"
-                className="block w-full pl-10 pr-3 py-3 border border-border/60 rounded-full leading-5 bg-background placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all shadow-sm hover:shadow-md"
+                className="block w-full pl-12 pr-4 py-3.5 border border-border/60 rounded-full leading-5 bg-background placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all shadow-sm hover:shadow-md text-sm"
                 placeholder="Search articles, topics, or tags..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -59,54 +59,55 @@ const Blogs: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredBlogs.map((blog, index) => (
-              <a 
-                key={blog.slug} 
+              <a
+                key={blog.slug}
                 href={`/blogs/${blog.slug}`}
-                className="group flex flex-col h-full bg-card rounded-xl border border-border/40 overflow-hidden transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:-translate-y-1"
+                className="group flex flex-col h-full bg-card rounded-2xl border border-border/40 overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:-translate-y-1.5"
               >
-                <div className="p-6 flex flex-col h-full">
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 font-medium">
+                <div className="p-7 flex flex-col h-full">
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-5">
                     <span className="flex items-center gap-1.5">
-                      <Calendar size={14} />
+                      <Calendar size={13} className="text-muted-foreground/70" />
                       {blog.date}
                     </span>
+                    <span className="w-1 h-1 rounded-full bg-border"></span>
                     <span className="flex items-center gap-1.5">
-                      <Clock size={14} />
+                      <Clock size={13} className="text-muted-foreground/70" />
                       {blog.readTime}
                     </span>
                   </div>
-                  
-                  <h2 className="text-xl font-semibold mb-3 tracking-tight group-hover:text-primary transition-colors line-clamp-2">
+
+                  <h2 className="text-lg font-semibold mb-3 tracking-tight group-hover:text-primary transition-colors line-clamp-2 leading-snug">
                     {blog.title}
                   </h2>
-                  
+
                   <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 mb-6 flex-grow">
                     {blog.description}
                   </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
+
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {blog.tags.slice(0, 2).map(tag => (
-                      <span key={tag} className="text-[10px] uppercase tracking-wider font-semibold px-2 py-1 bg-secondary/50 text-secondary-foreground rounded-md border border-border/50">
+                      <span key={tag} className="text-[10px] uppercase tracking-wider font-medium px-2.5 py-1 bg-secondary/60 text-secondary-foreground rounded-full">
                         {tag}
                       </span>
                     ))}
                     {blog.tags.length > 2 && (
-                       <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-1 bg-secondary/50 text-secondary-foreground rounded-md border border-border/50">
+                      <span className="text-[10px] uppercase tracking-wider font-medium px-2.5 py-1 bg-secondary/60 text-secondary-foreground rounded-full">
                         +{blog.tags.length - 2}
                       </span>
                     )}
                   </div>
-                  
-                  <div className="flex items-center justify-between text-xs font-medium text-primary pt-4 border-t border-border/40 mt-auto">
-                    <span className="flex items-center gap-2 group/btn">
+
+                  <div className="flex items-center justify-between text-xs font-medium pt-5 border-t border-border/30 mt-auto">
+                    <span className="flex items-center gap-2 text-primary group-hover:gap-3 transition-all">
                       Read Article
-                      <ArrowRight size={14} className="transition-transform group-hover/btn:translate-x-1" />
+                      <ArrowRight size={14} />
                     </span>
                     <span className="text-muted-foreground flex items-center gap-1.5">
-                       <User size={12} />
-                       {blog.author.split(' ')[0]}
+                      <User size={12} />
+                      {blog.author.split(' ')[0]}
                     </span>
                   </div>
                 </div>
@@ -115,14 +116,14 @@ const Blogs: React.FC = () => {
           </div>
 
           {filteredBlogs.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-muted-foreground text-lg">
+            <div className="text-center py-24">
+              <p className="text-muted-foreground text-lg mb-2">
                 {searchQuery ? `No results found for "${searchQuery}"` : "No posts found."}
               </p>
               {searchQuery && (
-                <button 
+                <button
                   onClick={() => setSearchQuery('')}
-                  className="mt-4 text-primary hover:underline font-medium"
+                  className="mt-4 text-primary hover:underline font-medium text-sm"
                 >
                   Clear search
                 </button>

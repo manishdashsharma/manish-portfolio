@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import { getBlogs } from '../lib/blog';
-import { cn } from '../lib/utils';
 import { ArrowRight, Calendar, Clock, User, Search } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -24,10 +23,42 @@ const Blogs: React.FC = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Blog | Manish</title>
-        <meta name="description" content="Exploring the frontiers of AI, software engineering, and the future of tech. Read my latest thoughts and tutorials." />
-        <meta property="og:title" content="Blog | Manish" />
+        <title>Blog | Manish Dash Sharma - AI, Software Engineering & Tech</title>
+        <meta name="description" content="Exploring the frontiers of AI, software engineering, and the future of tech. Read tutorials on GenAI, Node.js, Python, cloud infrastructure, and more." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://manishdashsharma.com/blogs" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://manishdashsharma.com/blogs" />
+        <meta property="og:title" content="Blog | Manish Dash Sharma" />
         <meta property="og:description" content="Exploring the frontiers of AI, software engineering, and the future of tech." />
+        <meta property="og:image" content="https://manishdashsharma.com/manish.jpeg" />
+        <meta property="og:site_name" content="Manish Dash Sharma" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://manishdashsharma.com/blogs" />
+        <meta name="twitter:title" content="Blog | Manish Dash Sharma" />
+        <meta name="twitter:description" content="Exploring the frontiers of AI, software engineering, and the future of tech." />
+        <meta name="twitter:image" content="https://manishdashsharma.com/manish.jpeg" />
+        <meta name="twitter:creator" content="@manishdsharma08" />
+
+        {/* JSON-LD Blog Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Manish Dash Sharma's Blog",
+            "description": "Exploring the frontiers of AI, software engineering, and the future of tech",
+            "url": "https://manishdashsharma.com/blogs",
+            "author": {
+              "@type": "Person",
+              "name": "Manish Dash Sharma",
+              "url": "https://manishdashsharma.com"
+            }
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

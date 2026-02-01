@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Markdown from 'react-markdown';
@@ -7,14 +6,9 @@ import { getBlogBySlug } from '../lib/blog';
 import { ArrowLeft, Calendar, Clock, User, Share2 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { cn } from '../lib/utils';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Mermaid from '../components/Mermaid';
-
-
-
-
 import { Helmet } from 'react-helmet-async';
 
 
@@ -49,13 +43,58 @@ const BlogPost: React.FC = () => {
     <div className="min-h-screen bg-background flex flex-col">
       {blog && (
         <Helmet>
-          <title>{blog.title} | Manish</title>
+          <title>{blog.title} | Manish Dash Sharma</title>
           <meta name="description" content={blog.description} />
+          <meta name="author" content={blog.author} />
+          <meta name="robots" content="index, follow" />
+          <link rel="canonical" href={`https://manishdashsharma.com/blogs/${slug}`} />
+
+          {/* Open Graph */}
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={`https://manishdashsharma.com/blogs/${slug}`} />
           <meta property="og:title" content={blog.title} />
           <meta property="og:description" content={blog.description} />
-          <meta property="og:type" content="article" />
-          <meta name="author" content={blog.author} />
+          <meta property="og:image" content="https://manishdashsharma.com/manish.jpeg" />
+          <meta property="og:site_name" content="Manish Dash Sharma" />
+          <meta property="article:author" content={blog.author} />
+          <meta property="article:published_time" content={blog.date} />
           {blog.tags.map(tag => <meta key={tag} property="article:tag" content={tag} />)}
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content={`https://manishdashsharma.com/blogs/${slug}`} />
+          <meta name="twitter:title" content={blog.title} />
+          <meta name="twitter:description" content={blog.description} />
+          <meta name="twitter:image" content="https://manishdashsharma.com/manish.jpeg" />
+          <meta name="twitter:creator" content="@manishdsharma08" />
+
+          {/* JSON-LD Article Schema */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": blog.title,
+              "description": blog.description,
+              "author": {
+                "@type": "Person",
+                "name": blog.author,
+                "url": "https://manishdashsharma.com"
+              },
+              "publisher": {
+                "@type": "Person",
+                "name": "Manish Dash Sharma",
+                "url": "https://manishdashsharma.com"
+              },
+              "datePublished": blog.date,
+              "dateModified": blog.date,
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://manishdashsharma.com/blogs/${slug}`
+              },
+              "keywords": blog.tags.join(", "),
+              "image": "https://manishdashsharma.com/manish.jpeg"
+            })}
+          </script>
         </Helmet>
       )}
       <Navbar />

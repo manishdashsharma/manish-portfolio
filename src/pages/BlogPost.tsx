@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getBlogBySlug } from '../lib/blog';
-import { ArrowLeft, Calendar, Clock, User, Share2 } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Share2, Check, Copy } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Mermaid from '../components/Mermaid';
 import { Helmet } from 'react-helmet-async';
+import { toast } from 'sonner';
 
 
 
@@ -139,42 +140,58 @@ const BlogPost: React.FC = () => {
           
           {/* Content */}
           <div className="prose prose-lg prose-neutral dark:prose-invert max-w-none
-            prose-headings:font-semibold prose-headings:tracking-tight
-            prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6
-            prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border/30 prose-h2:pb-3
-            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-            prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-2
-            prose-p:leading-relaxed prose-p:text-muted-foreground prose-p:mb-6
-            prose-li:text-muted-foreground prose-li:my-2
-            prose-ul:my-6 prose-ol:my-6
+            prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-foreground
+            prose-h1:text-3xl prose-h1:mt-16 prose-h1:mb-8
+            prose-h2:text-2xl prose-h2:mt-20 prose-h2:mb-6 prose-h2:border-b prose-h2:border-border/40 prose-h2:pb-4
+            prose-h3:text-xl prose-h3:mt-14 prose-h3:mb-5
+            prose-h4:text-lg prose-h4:mt-10 prose-h4:mb-4
+            prose-p:leading-[1.9] prose-p:text-muted-foreground prose-p:mb-6
+            prose-li:text-muted-foreground prose-li:my-2 prose-li:leading-[1.8]
+            prose-ul:my-6 prose-ol:my-6 prose-ul:pl-6 prose-ol:pl-6
             prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-            prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-secondary/30 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:text-muted-foreground
+            prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-secondary/30 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:text-muted-foreground prose-blockquote:my-10
             prose-strong:text-foreground prose-strong:font-semibold
-            prose-code:text-primary prose-code:bg-secondary/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none
-            prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8
-            prose-hr:border-border/50 prose-hr:my-12
-            prose-table:my-8 prose-th:bg-secondary/50 prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 prose-td:border-border/30
-            prose-pre:bg-transparent prose-pre:p-0 prose-pre:my-6">
-            <Markdown 
+            prose-code:text-primary prose-code:bg-secondary/60 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-[0.9em] prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+            prose-img:rounded-xl prose-img:shadow-lg prose-img:my-12
+            prose-hr:border-border/50 prose-hr:my-16
+            prose-table:my-10 prose-th:bg-secondary/50 prose-th:px-4 prose-th:py-3 prose-td:px-4 prose-td:py-3 prose-td:border-border/30
+            prose-pre:my-8 prose-pre:p-0 prose-pre:bg-transparent">
+            <Markdown
               remarkPlugins={[remarkGfm]}
               components={{
                 code(props) {
                   const {children, className, node, ref, ...rest} = props;
                   const match = /language-(\w+)/.exec(className || '');
-                  
+
                   if (match && match[1] === 'mermaid') {
                     return <Mermaid chart={String(children).replace(/\n$/, '')} />;
                   }
 
                   return match ? (
-                    <SyntaxHighlighter
-                      {...rest}
-                      PreTag="div"
-                      children={String(children).replace(/\n$/, '')}
-                      language={match[1]}
-                      style={atomDark}
-                      className="rounded-md !bg-secondary/50 !p-4"
-                    />
+                    <div className="rounded-xl overflow-hidden border border-border/40 my-8 shadow-lg">
+                      <div className="bg-[#1d1f21] px-4 py-2 border-b border-border/20 flex items-center gap-2">
+                        <div className="flex gap-1.5">
+                          <span className="w-3 h-3 rounded-full bg-red-500/80"></span>
+                          <span className="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                          <span className="w-3 h-3 rounded-full bg-green-500/80"></span>
+                        </div>
+                        <span className="text-xs text-muted-foreground ml-2 font-mono">{match[1]}</span>
+                      </div>
+                      <SyntaxHighlighter
+                        {...rest}
+                        PreTag="div"
+                        children={String(children).replace(/\n$/, '')}
+                        language={match[1]}
+                        style={atomDark}
+                        customStyle={{
+                          margin: 0,
+                          padding: '1.25rem',
+                          background: '#1d1f21',
+                          fontSize: '0.9rem',
+                          lineHeight: '1.7',
+                        }}
+                      />
+                    </div>
                   ) : (
                     <code {...rest} className={className}>
                       {children}
@@ -200,8 +217,28 @@ const BlogPost: React.FC = () => {
 
               <button
                 className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-4 py-2 rounded-full hover:bg-secondary/50"
-                onClick={() => {
-                  navigator.clipboard.writeText(window.location.href);
+                onClick={async () => {
+                  const shareData = {
+                    title: blog.title,
+                    text: blog.description,
+                    url: window.location.href,
+                  };
+
+                  // Use native share on mobile if available
+                  if (navigator.share && /mobile|android|iphone/i.test(navigator.userAgent)) {
+                    try {
+                      await navigator.share(shareData);
+                    } catch (err) {
+                      // User cancelled or error
+                    }
+                  } else {
+                    // Fallback to clipboard
+                    await navigator.clipboard.writeText(window.location.href);
+                    toast.success('Link copied to clipboard!', {
+                      description: 'Share this article with your friends.',
+                      duration: 3000,
+                    });
+                  }
                 }}
               >
                 <Share2 size={16} />

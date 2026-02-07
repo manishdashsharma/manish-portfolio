@@ -146,11 +146,11 @@ const BlogPost: React.FC = () => {
             prose-h3:text-xl prose-h3:mt-14 prose-h3:mb-5
             prose-h4:text-lg prose-h4:mt-10 prose-h4:mb-4
             prose-p:leading-[1.9] prose-p:text-muted-foreground prose-p:mb-6
-            prose-li:text-muted-foreground prose-li:my-2 prose-li:leading-[1.8]
-            prose-ul:my-6 prose-ol:my-6 prose-ul:pl-6 prose-ol:pl-6
+            prose-li:text-muted-foreground prose-li:my-3 prose-li:leading-[1.8]
+            prose-ul:my-8 prose-ol:my-8 prose-ul:pl-6 prose-ol:pl-6
             prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline
             prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-secondary/30 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:text-muted-foreground prose-blockquote:my-10
-            prose-strong:text-foreground prose-strong:font-semibold
+            prose-strong:text-foreground prose-strong:font-bold
             prose-code:text-primary prose-code:bg-secondary/60 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-[0.9em] prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
             prose-img:rounded-xl prose-img:shadow-lg prose-img:my-12
             prose-hr:border-border/50 prose-hr:my-16

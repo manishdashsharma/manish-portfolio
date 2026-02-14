@@ -23,6 +23,23 @@ const Projects: React.FC = () => {
 
   const projectsData: ProjectData[] = [
     {
+      title: "CurioBot",
+      description:
+        "A friendly AI learning companion for curious kids. Ask anything about space, dinosaurs, science, or the world — and get answers that actually make sense to an 11-year-old.",
+      techStack: [
+        "FastAPI",
+        "React",
+        "PostgreSQL",
+        "OpenAI",
+        "Google Gemini",
+        "Tailwind CSS",
+      ],
+      liveLink: "https://github.com/manishdashsharma/CurioBot.git",
+      longDescription:
+        "The internet wasn't built to answer a kid's questions. CurioBot fixes that. Kids aged 8-14 can chat with an AI that talks like a friendly older friend — using stories, analogies, and fun facts instead of jargon. Powered by GPT-4o Mini and Gemini 2.5 Flash with a factory pattern for easy provider swapping, built-in session limits to keep conversations intentional, and a playful React frontend with Framer Motion animations.",
+      rating: 5,
+    },
+    {
       title: "ConsensusAI",
       description:
         "When one AI isn't enough. Orchestrate GPT-4, Claude, Gemini, and Grok to debate, evaluate, and synthesize the most well-reasoned answers through collective intelligence.",

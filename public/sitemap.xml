@@ -16,6 +16,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://manishdashsharma.com/blogs/i-built-ai-chatbot-for-kids</loc>
+    <lastmod>2025-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://manishdashsharma.com/blogs/demystifying-buffers-nodejs</loc>
     <lastmod>2025-02-06</lastmod>
     <changefreq>monthly</changefreq>

@@ -23,6 +23,16 @@ const Projects: React.FC = () => {
 
   const projectsData: ProjectData[] = [
     {
+      title: "Imgo",
+      description:
+        "An open-source alternative to ImageKit and Cloudinary. Self-host once, own forever — upload images, serve on-the-fly URL transformations, protect with API keys and signed URLs. $0/month.",
+      techStack: ["Node.js", "Express", "Sharp", "Docker", "MinIO", "Redis"],
+      liveLink: "https://github.com/manishdashsharma/Imgo.git",
+      longDescription:
+        "Imgo is an open-source alternative to ImageKit and Cloudinary — a self-hosted image processing service you deploy once and own forever. Upload images, serve them with on-the-fly URL transformations, protect them with API keys and signed URLs, and pay $0 per month. No vendor lock-in, no usage limits, no surprise bills. Full control over your image infrastructure.",
+      rating: 5,
+    },
+    {
       title: "Sahara",
       description:
         "A safety-first, open-source AI framework for mental health support. Every response passes through crisis detection, medical claim stripping, tone enforcement, and structured output validation — enforced in code, not prompts.",

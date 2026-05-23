@@ -19,7 +19,7 @@ const About: React.FC = () => {
   
   const experiences = [
     {
-      role: "Full Stack Engineer",
+      role: "Senior Software Engineer",
       company: "Rightsteps,UK (Remote)",
       period: "July 2025 – Present",
       description: "Building scalable web applications, designing RESTful APIs that drive real-time interactions between users and our platform."

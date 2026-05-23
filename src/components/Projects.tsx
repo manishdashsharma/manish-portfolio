@@ -23,6 +23,36 @@ const Projects: React.FC = () => {
 
   const projectsData: ProjectData[] = [
     {
+      title: "Sahara",
+      description:
+        "A safety-first, open-source AI framework for mental health support. Every response passes through crisis detection, medical claim stripping, tone enforcement, and structured output validation — enforced in code, not prompts.",
+      techStack: ["Python", "FastAPI", "GenAI", "uv"],
+      liveLink: "https://github.com/manishdashsharma/Sahara.git",
+      longDescription:
+        "Sahara is not just another AI chatbot. It's a harness-engineered system where every AI response passes through a rigorous safety layer before reaching the user — crisis detection, medical claim stripping, tone enforcement, and structured output validation — all enforced in code, not in prompts. Built for developers, researchers, and organizations who want to deploy AI in sensitive mental health contexts responsibly.",
+      rating: 5,
+    },
+    {
+      title: "Arxio.in",
+      description:
+        "Your personal AI research brain. Upload a PDF or type a topic and get presentations, documents, Q&A prep, and cheat sheets — in minutes.",
+      techStack: ["Next.js", "React", "Python", "FastAPI", "GenAI", "PDF Processing", "Web Search"],
+      liveLink: "https://www.arxio.in/",
+      longDescription:
+        "Upload any PDF and Arxio builds a complete workspace — paper overview, concept explainer, methodology breakdown, results analysis, critical analysis, 15-slide presentation, presentation script, Q&A preparation, and a one-page cheat sheet. You should never need to open the original paper again. Research any topic by typing it — Arxio searches the web and academic databases, reads everything it finds, and generates professional documents with real citations in any format: PowerPoint, Word, PDF, Excel, or academic research report.",
+      rating: 5,
+    },
+    {
+      title: "Vivaran",
+      description:
+        "Upload any lab report and 6 AI specialists each analyze a different dimension of your health. In 60 seconds, get a clear plain-language explanation — no doctor's degree required.",
+      techStack: ["Next.js", "React", "Python", "FastAPI", "GenAI", "Multi-Agent"],
+      liveLink: "https://github.com/manishdashsharma/Vivaran.git",
+      longDescription:
+        "Upload any lab report — blood test, thyroid, kidney, liver, lipid panel, urine, or more. Vivaran sends it to 6 AI specialists who each analyze a different dimension of your health. In 60 seconds, you get a clear, plain-language explanation with no medical jargon. No login. No subscription. One-time payment per report. Your medical report, finally explained.",
+      rating: 5,
+    },
+    {
       title: "CurioBot",
       description:
         "A friendly AI learning companion for curious kids. Ask anything about space, dinosaurs, science, or the world — and get answers that actually make sense to an 11-year-old.",

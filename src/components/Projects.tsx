@@ -23,10 +23,38 @@ const Projects: React.FC = () => {
 
   const projectsData: ProjectData[] = [
     {
+      title: "ErrorLens",
+      description:
+        "An AI-native, self-hosted error tracker that goes beyond telling you what broke — it explains why it broke. Capture errors, trace them to the code and recent commits, get AI-powered root cause analysis, and receive actionable fixes without sending your data to a third-party service.",
+      techStack: [
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Prisma",
+        "Docker",
+        "Inngest",
+        "GenAI",
+        "GitHub",
+        "Groq",
+      ],
+      liveLink: "https://github.com/manishdashsharma/ErrorLens",
+      longDescription:
+        "ErrorLens is a self-hosted, AI-native error tracking platform built as an open-source alternative to Sentry and GlitchTip. It captures errors, stack traces, and surrounding source code from Node.js and Express applications, groups repeated errors automatically, and correlates new errors with recent Git commits to identify likely causes. An LLM then explains the root cause in plain English and suggests a fix. ErrorLens can deliver alerts through Slack, Microsoft Teams, Discord, or custom webhooks, while keeping error data entirely on your own infrastructure.",
+      rating: 5,
+    },
+    {
       title: "Zeocloud",
       description:
         "Ask your codebase anything — locally, privately, powerfully. An open-source CLI that lets you have natural conversations with any codebase in English or Hindi, without sending a single byte to the cloud.",
-      techStack: ["Python", "Ollama", "Qdrant", "Typer", "Rich", "uv", "Docker"],
+      techStack: [
+        "Python",
+        "Ollama",
+        "Qdrant",
+        "Typer",
+        "Rich",
+        "uv",
+        "Docker",
+      ],
       liveLink: "https://github.com/manishdashsharma/Zeocloud",
       longDescription:
         "Zeocloud indexes your entire codebase locally, stores vectors in a self-hosted Qdrant instance, and runs language models on your own hardware via Ollama — no API keys, no subscriptions, no cloud calls. It detects your hardware (RAM, GPU, Apple Silicon) and recommends the right model for your machine, remembers conversation context for follow-up questions, understands 40+ languages, respects .gitignore, and blocks indexing of sensitive directories. Ask in English or Hindi and get answers in the same language. Published on PyPI as `zeocloud`, installable via pipx, pip, or uv.",
@@ -56,7 +84,15 @@ const Projects: React.FC = () => {
       title: "Arxio.in",
       description:
         "Your personal AI research brain. Upload a PDF or type a topic and get presentations, documents, Q&A prep, and cheat sheets — in minutes.",
-      techStack: ["Next.js", "React", "Python", "FastAPI", "GenAI", "PDF Processing", "Web Search"],
+      techStack: [
+        "Next.js",
+        "React",
+        "Python",
+        "FastAPI",
+        "GenAI",
+        "PDF Processing",
+        "Web Search",
+      ],
       liveLink: "https://www.arxio.in/",
       longDescription:
         "Upload any PDF and Arxio builds a complete workspace — paper overview, concept explainer, methodology breakdown, results analysis, critical analysis, 15-slide presentation, presentation script, Q&A preparation, and a one-page cheat sheet. You should never need to open the original paper again. Research any topic by typing it — Arxio searches the web and academic databases, reads everything it finds, and generates professional documents with real citations in any format: PowerPoint, Word, PDF, Excel, or academic research report.",
@@ -66,7 +102,14 @@ const Projects: React.FC = () => {
       title: "Vivaran",
       description:
         "Upload any lab report and 6 AI specialists each analyze a different dimension of your health. In 60 seconds, get a clear plain-language explanation — no doctor's degree required.",
-      techStack: ["Next.js", "React", "Python", "FastAPI", "GenAI", "Multi-Agent"],
+      techStack: [
+        "Next.js",
+        "React",
+        "Python",
+        "FastAPI",
+        "GenAI",
+        "Multi-Agent",
+      ],
       liveLink: "https://github.com/manishdashsharma/Vivaran.git",
       longDescription:
         "Upload any lab report — blood test, thyroid, kidney, liver, lipid panel, urine, or more. Vivaran sends it to 6 AI specialists who each analyze a different dimension of your health. In 60 seconds, you get a clear, plain-language explanation with no medical jargon. No login. No subscription. One-time payment per report. Your medical report, finally explained.",
@@ -207,42 +250,52 @@ const Projects: React.FC = () => {
     },
     {
       title: "Whisper AI",
-      description: "Enterprise-grade speech-to-text that runs on your infrastructure. Zero cloud dependencies, infinite scalability, maximum privacy.",
+      description:
+        "Enterprise-grade speech-to-text that runs on your infrastructure. Zero cloud dependencies, infinite scalability, maximum privacy.",
       techStack: ["Python", "Flask", "Docker", "OpenAI Whisper"],
       liveLink: "https://github.com/manishdashsharma/whisper-open-ai.git",
-      longDescription: "Stop paying per minute for transcriptions. Whisper AI is a production-ready, self-hosted API that turns audio into text with jaw-dropping accuracy across 99+ languages. Built with OpenAI's state-of-the-art Whisper model, containerized for instant deployment, and designed to handle everything from podcast episodes to customer calls. Your data stays yours, your costs stay predictable, and your transcriptions stay flawless.",
+      longDescription:
+        "Stop paying per minute for transcriptions. Whisper AI is a production-ready, self-hosted API that turns audio into text with jaw-dropping accuracy across 99+ languages. Built with OpenAI's state-of-the-art Whisper model, containerized for instant deployment, and designed to handle everything from podcast episodes to customer calls. Your data stays yours, your costs stay predictable, and your transcriptions stay flawless.",
       rating: 5,
     },
     {
       title: "VerbIQ",
-      description: "Never take meeting notes again. AI extracts decisions, action items, and insights from your calls—automatically.",
+      description:
+        "Never take meeting notes again. AI extracts decisions, action items, and insights from your calls—automatically.",
       techStack: ["Next.js", "OpenAI GPT-4", "Whisper AI"],
       liveLink: "https://github.com/manishdashsharma/verbiq.git",
-      longDescription: "What if every meeting came with a personal assistant who captured every decision, tracked every commitment, and summarized the key insights? VerbIQ does exactly that. Upload your recording, and GPT-4 instantly extracts action items, sentiment, key decisions, and next steps. No more scrambling through hour-long transcripts or forgetting who committed to what. Just crystal-clear meeting intelligence that turns talk into action.",
+      longDescription:
+        "What if every meeting came with a personal assistant who captured every decision, tracked every commitment, and summarized the key insights? VerbIQ does exactly that. Upload your recording, and GPT-4 instantly extracts action items, sentiment, key decisions, and next steps. No more scrambling through hour-long transcripts or forgetting who committed to what. Just crystal-clear meeting intelligence that turns talk into action.",
       rating: 4,
     },
     {
       title: "ChangelogCraft",
-      description: "Ship updates that users actually read. Beautiful, animated changelogs that turn release notes into marketing moments.",
+      description:
+        "Ship updates that users actually read. Beautiful, animated changelogs that turn release notes into marketing moments.",
       techStack: ["Next.js", "Markdown", "Tailwind CSS", "Framer Motion"],
       liveLink: "https://github.com/manishdashsharma/AI-Code-Reviewer.git",
-      longDescription: "Release notes don't have to be boring. ChangelogCraft transforms your updates into stunning, animated experiences that users love to read. Write in simple Markdown, get a gorgeous changelog with smooth Framer Motion animations, responsive design, and professional polish. Perfect for SaaS products, developer tools, and anyone who ships features worth celebrating. Make every release feel like a product launch.",
+      longDescription:
+        "Release notes don't have to be boring. ChangelogCraft transforms your updates into stunning, animated experiences that users love to read. Write in simple Markdown, get a gorgeous changelog with smooth Framer Motion animations, responsive design, and professional polish. Perfect for SaaS products, developer tools, and anyone who ships features worth celebrating. Make every release feel like a product launch.",
       rating: 4,
     },
     {
       title: "EasyMeet",
-      description: "Video calls without the friction. Crystal-clear HD, instant screen sharing, and zero downloads—just click and connect.",
+      description:
+        "Video calls without the friction. Crystal-clear HD, instant screen sharing, and zero downloads—just click and connect.",
       techStack: ["Next.js", "Stream.io SDK"],
       liveLink: "https://github.com/manishdashsharma/EasyMeet.git",
-      longDescription: "Tired of clunky video conferencing tools? EasyMeet strips away the complexity and delivers what you actually need: HD video, crisp audio, instant screen sharing, and real-time chat—all in your browser. No downloads, no account required for guests, no 40-minute limits. Built with Stream.io's enterprise-grade infrastructure and Next.js for lightning-fast performance. Perfect for quick team syncs, client calls, or remote presentations.",
-      rating: 4
+      longDescription:
+        "Tired of clunky video conferencing tools? EasyMeet strips away the complexity and delivers what you actually need: HD video, crisp audio, instant screen sharing, and real-time chat—all in your browser. No downloads, no account required for guests, no 40-minute limits. Built with Stream.io's enterprise-grade infrastructure and Next.js for lightning-fast performance. Perfect for quick team syncs, client calls, or remote presentations.",
+      rating: 4,
     },
     {
       title: "Queryly (Building...)",
-      description: "Upload your notes, get instant quizzes. AI that turns any PDF, lecture, or textbook into personalized practice tests.",
+      description:
+        "Upload your notes, get instant quizzes. AI that turns any PDF, lecture, or textbook into personalized practice tests.",
       techStack: ["Node.js", "OpenAI GPT-4", "React Native"],
       liveLink: "https://github.com/manishdashsharma/Queryly.git",
-      longDescription: "Study smarter, not harder. Queryly uses a multi-agent AI system to digest your PDFs, lecture notes, and study materials, then generates intelligent quizzes tailored to your learning style. Whether you're prepping for exams, teaching a class, or mastering a new skill, Queryly creates practice questions that actually test understanding—not just memorization. Available on mobile so you can learn anywhere, anytime.",
+      longDescription:
+        "Study smarter, not harder. Queryly uses a multi-agent AI system to digest your PDFs, lecture notes, and study materials, then generates intelligent quizzes tailored to your learning style. Whether you're prepping for exams, teaching a class, or mastering a new skill, Queryly creates practice questions that actually test understanding—not just memorization. Available on mobile so you can learn anywhere, anytime.",
       rating: 0,
     },
     {
@@ -358,7 +411,6 @@ const Projects: React.FC = () => {
         "College Finder Bot is a Python script designed to help users discover nearby colleges based on their location and course preferences. The bot leverages natural language processing (NLP) to interpret user queries and utilizes geospatial calculations to determine proximity to relevant institutions, providing accurate and personalized results.",
       rating: 4,
     },
-
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -385,8 +437,8 @@ const Projects: React.FC = () => {
             </h2>
           </div>
           <p className="max-w-md text-ink/70 leading-relaxed">
-            {projectsData.length}+ shipped projects spanning full-stack development,
-            AI systems, and scalable cloud infrastructure.
+            {projectsData.length}+ shipped projects spanning full-stack
+            development, AI systems, and scalable cloud infrastructure.
           </p>
         </div>
 
@@ -399,7 +451,7 @@ const Projects: React.FC = () => {
               key={project.title}
               className={cn(
                 "opacity-0 transform translate-y-4 transition-all duration-500",
-                inView && "opacity-100 translate-y-0"
+                inView && "opacity-100 translate-y-0",
               )}
               style={{ transitionDelay: `${index * 0.05}s` }}
             >
@@ -419,10 +471,7 @@ const Projects: React.FC = () => {
 
         {visibleProjects < projectsData.length && (
           <div className="mt-16 text-center">
-            <button
-              className="brutal-btn"
-              onClick={handleViewMore}
-            >
+            <button className="brutal-btn" onClick={handleViewMore}>
               View More
               <ChevronDown size={16} />
             </button>

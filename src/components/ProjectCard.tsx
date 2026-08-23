@@ -14,10 +14,10 @@ interface ProjectCardProps {
   rating?: number;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ 
-  title, 
-  description, 
-  techStack, 
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  title,
+  description,
+  techStack,
   index,
   liveLink,
   clientMessage,
@@ -28,12 +28,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [modalActive, setModalActive] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Improved modal open function with animation sequence
   const openModal = () => {
     setShowModal(true);
     document.body.style.overflow = 'hidden';
-    
-    // Activate modal for animation after a small delay
+
     setTimeout(() => {
       setModalActive(true);
     }, 10);
@@ -41,51 +39,46 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const closeModal = () => {
     setModalActive(false);
-    
-    // Remove modal from DOM after animation completes
+
     setTimeout(() => {
       setShowModal(false);
       document.body.style.overflow = 'auto';
     }, 300);
   };
 
-  // Handle ESC key to close modal
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeModal();
       }
     };
-    
+
     if (showModal) {
       window.addEventListener('keydown', handleEsc);
     }
-    
+
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
   }, [showModal]);
 
-  // Close modal when clicking outside
   const handleModalBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
   };
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     return () => {
-      document.body.style.overflow = 'auto'; // Ensure overflow is reset when component unmounts
+      document.body.style.overflow = 'auto';
     };
   }, []);
 
-  // Create portal for modal to prevent stacking context issues
   const Modal = () => {
     return createPortal(
-      <div 
+      <div
         className={cn(
-          "fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 modal-overlay",
+          "fixed inset-0 bg-ink/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 modal-overlay",
           modalActive && "active"
         )}
         onClick={handleModalBackgroundClick}
@@ -93,35 +86,34 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         aria-modal="true"
         aria-labelledby={`modal-title-${title.replace(/\s+/g, '-').toLowerCase()}`}
       >
-        <div 
+        <div
           ref={modalRef}
           className={cn(
-            "bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-content shadow-2xl border border-border/10",
+            "bg-card border-2 border-ink max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-content shadow-brutal-lg",
             modalActive && "active"
           )}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="sticky top-0 bg-background/80 backdrop-blur-md p-6 border-b border-border/10 flex justify-between items-center z-10">
-            <h2 
+          <div className="sticky top-0 bg-ink text-paper p-6 border-b-2 border-ink flex justify-between items-center z-10">
+            <h2
               id={`modal-title-${title.replace(/\s+/g, '-').toLowerCase()}`}
-              className="text-xl font-semibold tracking-tight text-foreground"
+              className="font-display text-xl tracking-tight"
             >
               {title}
             </h2>
-            <button 
+            <button
               onClick={closeModal}
-              className="p-2 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-full"
+              className="p-2 border-2 border-paper/40 hover:border-lime hover:bg-lime hover:text-ink text-paper transition-colors"
               aria-label="Close modal"
             >
               <X size={18} />
             </button>
           </div>
-          
+
           <div className="p-6 space-y-8">
-            {/* Rating */}
             {rating > 0 && (
               <div>
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Project Rating</h3>
+                <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-ink/50 mb-3">Project Rating</h3>
                 <div className="flex items-center gap-2">
                   <div className="flex">
                   {[...Array(5)].map((_, i) => (
@@ -130,52 +122,48 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                       size={18}
                       className={cn(
                         "mr-0.5",
-                        i < rating ? "fill-amber-400 text-amber-400" : "fill-muted text-muted"
+                        i < rating ? "fill-coral text-ink" : "fill-transparent text-ink/20"
                       )}
                     />
                   ))}
                   </div>
-                  <span className="text-sm font-medium text-foreground">{rating}.0</span>
+                  <span className="text-sm font-mono font-bold text-ink">{rating}.0</span>
                 </div>
               </div>
             )}
-            
-            {/* Full Description */}
+
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">About</h3>
-              <p className="text-foreground/90 leading-relaxed text-base">{longDescription || description}</p>
+              <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-ink/50 mb-3">About</h3>
+              <p className="text-ink/90 leading-relaxed text-base">{longDescription || description}</p>
             </div>
-            
-            {/* Client Message */}
+
             {clientMessage && (
               <div>
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Client Feedback</h3>
-                <div className="bg-muted/50 p-4 rounded-lg border-l-4 border-primary/20 italic text-muted-foreground">
+                <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-ink/50 mb-3">Client Feedback</h3>
+                <div className="bg-secondary/60 p-4 border-l-4 border-coral italic text-ink/80">
                   "{clientMessage}"
                 </div>
               </div>
             )}
-            
-            {/* Tech Stack */}
+
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Technology Stack</h3>
+              <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-ink/50 mb-3">Technology Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {techStack.map((tech) => (
-                  <span key={tech} className="text-xs font-medium px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md border border-secondary">
+                  <span key={tech} className="text-xs font-mono font-semibold px-2.5 py-1 border-2 border-ink bg-secondary/40">
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
-            
-            {/* Live Link */}
+
             {liveLink && (
               <div className="pt-4">
-                <a 
+                <a
                   href={liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all shadow-sm hover:shadow"
+                  className="brutal-btn"
                 >
                   Visit Project <ExternalLink size={14} />
                 </a>
@@ -190,60 +178,63 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <>
-      <div 
-        className="group relative flex flex-col h-full bg-card rounded-xl border border-border/40 p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:-translate-y-1"
+      <div
+        className="group relative flex flex-col h-full brutal-card p-6"
       >
-        <div className="mb-5 flex items-start justify-between">
+        <span className="absolute -top-3 -left-3 w-9 h-9 border-2 border-ink bg-lime text-ink font-mono text-xs font-bold flex items-center justify-center">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+
+        <div className="mb-5 flex items-start justify-between pt-2">
           <div className="space-y-1">
-            <h3 className="font-semibold text-xl tracking-tight text-foreground group-hover:text-primary transition-colors">
+            <h3 className="font-display text-xl tracking-tight text-ink">
               {title}
             </h3>
-            <div className="h-0.5 w-0 bg-primary/20 group-hover:w-full transition-all duration-500 ease-out" />
+            <div className="h-0.5 w-0 bg-coral group-hover:w-full transition-all duration-500 ease-out" />
           </div>
           {liveLink && (
-            <a 
-              href={liveLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-muted-foreground hover:text-primary transition-colors p-1"
+            <a
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink/60 hover:text-coral transition-colors p-1"
               onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink size={18} />
             </a>
           )}
         </div>
-        
-        <p className="text-muted-foreground text-sm mb-6 leading-relaxed line-clamp-3 flex-grow">
+
+        <p className="text-ink/70 text-sm mb-6 leading-relaxed line-clamp-3 flex-grow">
           {description}
         </p>
-        
+
         <div className="mt-auto space-y-5">
           <div className="flex flex-wrap gap-1.5">
             {techStack.slice(0, 3).map((tech) => (
-              <span key={tech} className="text-[10px] font-medium px-2 py-1 bg-secondary/50 text-secondary-foreground rounded-md border border-border/50">
+              <span key={tech} className="text-[10px] font-mono font-semibold px-2 py-1 border-2 border-ink/70 text-ink/80">
                 {tech}
               </span>
             ))}
             {techStack.length > 3 && (
-              <span className="text-[10px] font-medium px-2 py-1 bg-secondary/50 text-secondary-foreground rounded-md border border-border/50">
+              <span className="text-[10px] font-mono font-semibold px-2 py-1 border-2 border-ink/70 text-ink/80">
                 +{techStack.length - 3}
               </span>
             )}
           </div>
-          
-          <button 
+
+          <button
             onClick={openModal}
-            className="w-full flex items-center justify-between text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors pt-4 border-t border-border/40"
+            className="w-full flex items-center justify-between text-xs font-mono font-bold uppercase tracking-wide text-ink/70 group-hover:text-ink transition-colors pt-4 border-t-2 border-ink/15"
           >
             <span>View Details</span>
-            <span className="bg-secondary rounded-full p-1 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+            <span className="border-2 border-ink p-1 group-hover:bg-ink group-hover:text-lime transition-all duration-200">
               <ArrowRight size={12} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
             </span>
           </button>
         </div>
       </div>
 
-      {/* Modal Portal */}
       {showModal && <Modal />}
     </>
   );

@@ -1,8 +1,6 @@
 
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import SkillBadge from './SkillBadge';
-import LineIllustration from './LineIllustration';
 import { cn } from '../lib/utils';
 
 const About: React.FC = () => {
@@ -10,19 +8,19 @@ const About: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   const skills = [
-    "GenAI","Node.js", "Python/Django", "React", "Next.js", "Docker", 
-    "Kubernetes", "Kafka", "WebSockets", "MongoDB", "Postgres",  
+    "GenAI", "Node.js", "Python/Django", "FastAPI", "React", "Next.js", "Docker",
+    "Kubernetes", "Kafka", "WebSockets", "MongoDB", "Postgres",
     "Prisma ORM", "TypeScript", "JavaScript", "AWS", "firebase", "Redis","Git/Github"
   ];
-  
+
   const experiences = [
     {
       role: "Senior Software Engineer",
       company: "Rightsteps,UK (Remote)",
       period: "July 2025 – Present",
-      description: "Building scalable web applications, designing RESTful APIs that drive real-time interactions between users and our platform."
+      description: "Building scalable web applications, designing RESTful APIs that drive real-time interactions between users and our platform, and integrating AI-powered features into the product using GenAI models."
     },
     {
       role: "Technical Project Manager",
@@ -43,107 +41,108 @@ const About: React.FC = () => {
       description: "Developed and maintained software applications, collaborated on architecture decisions, and implemented CI/CD pipelines."
     }
   ];
-  
+
   return (
-    <section id="about" className="section-padding bg-muted/30">
+    <section id="about" className="section-padding border-t-2 border-ink bg-secondary/60">
       <div className="container mx-auto container-padding max-w-6xl">
-        <div className="text-center mb-20">
-          <p className="text-sm font-medium text-muted-foreground tracking-wide uppercase mb-4">
-            About
+        <div className="mb-20">
+          <p className="text-xs font-mono font-bold text-coral tracking-widest uppercase mb-3">
+            /03 — About
           </p>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-6">
-            Background & Expertise
+          <h2 className="font-display text-4xl md:text-6xl tracking-tight mb-6">
+            Background &amp; Expertise
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-            Technical skills, professional journey, and the approach that drives 
+          <p className="max-w-2xl text-ink/70 leading-relaxed text-lg">
+            Technical skills, professional journey, and the approach that drives
             innovation in software engineering.
           </p>
         </div>
-        
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <h3 className="text-xl font-medium mb-8 tracking-tight">
+            <h3 className="font-mono text-sm font-bold uppercase tracking-widest mb-6 text-ink/60">
               Technical Skills
             </h3>
-            
-            <div className="flex flex-wrap gap-2 mb-8">
+
+            <div className="flex flex-wrap gap-2.5 mb-10">
               {skills.map((skill, index) => (
-                <div 
+                <div
                   key={skill}
                   className={cn(
-                    "opacity-0 transform translate-y-4 transition-all duration-500", 
+                    "opacity-0 transform translate-y-4 transition-all duration-500",
                     inView && "opacity-100 translate-y-0"
-                  )} 
+                  )}
                   style={{ transitionDelay: `${index * 0.03}s` }}
                 >
-                  <span className="text-xs font-medium px-3 py-1.5 bg-secondary/50 border border-border/50 text-secondary-foreground rounded-md hover:bg-secondary hover:border-border transition-colors cursor-default">
+                  <span className="brutal-chip">
                     {skill}
                   </span>
                 </div>
               ))}
             </div>
-            
-            <div 
+
+            <div
               className={cn(
-                "bg-card rounded-xl border border-border/40 p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:-translate-y-1 opacity-0 transform translate-y-4", 
+                "brutal-card p-8 opacity-0 transform translate-y-4",
                 inView && "opacity-100 translate-y-0"
-              )} 
+              )}
               style={{ transitionDelay: "0.6s" }}
             >
-              <h4 className="text-xl font-semibold mb-4 tracking-tight">
+              <h4 className="font-display text-2xl mb-4 tracking-tight">
                 Philosophy
               </h4>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Passionate about building high-performance applications and fostering collaborative 
+              <p className="text-ink/70 mb-4 leading-relaxed">
+                Passionate about building high-performance applications and fostering collaborative
                 engineering culture. Believer in clean code, thoughtful architecture, and continuous learning.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Development philosophy focuses on creating scalable solutions that solve real problems 
+              <p className="text-ink/70 leading-relaxed">
+                Development philosophy focuses on creating scalable solutions that solve real problems
                 while maintaining code quality and exceptional user experience.
               </p>
             </div>
           </div>
-          
+
           <div>
-            <h3 className="text-2xl font-semibold mb-8 tracking-tight">
+            <h3 className="font-mono text-sm font-bold uppercase tracking-widest mb-6 text-ink/60">
               Professional Experience
             </h3>
-            
-            <div className="space-y-8">
+
+            <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <div 
+                <div
                   key={exp.company + exp.period}
                   className={cn(
-                    "relative pl-8 opacity-0 transform translate-y-4 transition-all duration-500", 
+                    "relative flex gap-4 opacity-0 transform translate-y-4 transition-all duration-500",
                     inView && "opacity-100 translate-y-0"
-                  )} 
-                  style={{ transitionDelay: `${index * 0.2}s` }}
-                >
-                  <div className="absolute left-0 top-1.5 w-3 h-3 border-2 border-primary rounded-full bg-background z-10"></div>
-                  {index < experiences.length - 1 && (
-                    <div className="absolute left-1.5 top-4 w-0.5 h-full -ml-px bg-border/60"></div>
                   )}
-                  
-                  <div className="mb-1 text-xs text-primary/80 font-mono font-medium">{exp.period}</div>
-                  <h4 className="font-semibold text-lg">{exp.role}</h4>
-                  <div className="text-sm text-foreground/70 mb-2 font-medium">{exp.company}</div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{exp.description}</p>
+                  style={{ transitionDelay: `${index * 0.15}s` }}
+                >
+                  <div className="shrink-0 w-11 h-11 border-2 border-ink bg-ink text-lime font-mono text-sm font-bold flex items-center justify-center">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+
+                  <div className="border-b-2 border-ink/15 pb-6 flex-1">
+                    <div className="mb-1 text-xs text-coral font-mono font-bold uppercase tracking-wide">{exp.period}</div>
+                    <h4 className="font-display text-lg tracking-tight">{exp.role}</h4>
+                    <div className="text-sm text-ink/70 mb-2 font-semibold">{exp.company}</div>
+                    <p className="text-sm text-ink/60 leading-relaxed">{exp.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
-            
-            <div 
+
+            <div
               className={cn(
-                "bg-card rounded-xl border border-border/40 p-8 mt-10 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:-translate-y-1 opacity-0 transform translate-y-4", 
+                "brutal-card p-8 mt-10 opacity-0 transform translate-y-4",
                 inView && "opacity-100 translate-y-0"
-              )} 
+              )}
               style={{ transitionDelay: "0.8s" }}
             >
-              <h4 className="text-xl font-semibold mb-4 tracking-tight">
-                Cloud & Infrastructure
+              <h4 className="font-display text-2xl mb-4 tracking-tight">
+                Cloud &amp; Infrastructure
               </h4>
-              <p className="text-muted-foreground leading-relaxed">
-                Specialized in designing and implementing cloud infrastructure on AWS, with expertise 
+              <p className="text-ink/70 leading-relaxed">
+                Specialized in designing and implementing cloud infrastructure on AWS, with expertise
                 in containerization using Docker and Kubernetes, and robust CI/CD pipelines for seamless deployment.
               </p>
             </div>

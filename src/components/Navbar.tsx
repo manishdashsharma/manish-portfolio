@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Work', href: '#projects' },
     { name: 'Blog', href: '/blogs' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' }
@@ -41,7 +41,6 @@ const Navbar: React.FC = () => {
       return;
     }
 
-    // Smooth scroll for hash links on home page
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -60,29 +59,30 @@ const Navbar: React.FC = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-200',
-        isScrolled 
-          ? 'py-4 bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm' 
-          : 'py-6 bg-transparent'
+        'fixed top-0 w-full z-50 transition-all duration-200 border-b-2',
+        isScrolled
+          ? 'py-3 bg-paper/95 backdrop-blur-sm border-ink'
+          : 'py-5 bg-transparent border-transparent'
       )}
     >
       <div className="container mx-auto container-padding flex items-center justify-between">
-        <a href="/" onClick={handleLogoClick} className="z-50">
-          <div className="font-serif text-xl font-bold flex items-center">
-            Manish
-            <span className="inline-block w-2 h-2 ml-1 bg-primary rounded-full animate-pulse" />
+        <a href="/" onClick={handleLogoClick} className="z-50 group">
+          <div className="font-display text-xl flex items-center gap-2">
+            <span className="border-2 border-ink bg-ink text-lime px-2 py-1 leading-none group-hover:bg-lime group-hover:text-ink transition-colors">
+              MANISH
+            </span>
           </div>
         </a>
 
         {/* Desktop Menu */}
         <nav className="hidden md:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-1">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <a 
+                <a
                   href={link.href}
                   onClick={(e) => handleNavigation(e, link.href)}
-                  className="text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:bg-secondary/50 px-3 py-2 rounded-md"
+                  className="relative text-sm font-mono font-semibold uppercase tracking-wide text-ink px-4 py-2 border-2 border-transparent hover:border-ink hover:bg-lime transition-all duration-150"
                 >
                   {link.name}
                 </a>
@@ -92,8 +92,8 @@ const Navbar: React.FC = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden z-50 text-foreground" 
+        <button
+          className="md:hidden z-50 text-ink border-2 border-ink bg-paper p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -102,15 +102,15 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-background flex flex-col items-center justify-center md:hidden">
+          <div className="fixed inset-0 bg-paper grid-texture flex flex-col items-center justify-center md:hidden">
             <nav>
-              <ul className="flex flex-col items-center gap-6">
+              <ul className="flex flex-col items-center gap-4">
                 {navLinks.map((link) => (
                   <li key={link.name}>
-                    <a 
+                    <a
                       href={link.href}
                       onClick={(e) => handleNavigation(e, link.href)}
-                      className="text-xl font-medium text-foreground"
+                      className="font-display text-3xl text-ink hover:text-coral transition-colors"
                     >
                       {link.name}
                     </a>

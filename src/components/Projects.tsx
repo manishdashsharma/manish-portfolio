@@ -23,6 +23,16 @@ const Projects: React.FC = () => {
 
   const projectsData: ProjectData[] = [
     {
+      title: "Zeocloud",
+      description:
+        "Ask your codebase anything — locally, privately, powerfully. An open-source CLI that lets you have natural conversations with any codebase in English or Hindi, without sending a single byte to the cloud.",
+      techStack: ["Python", "Ollama", "Qdrant", "Typer", "Rich", "uv", "Docker"],
+      liveLink: "https://github.com/manishdashsharma/Zeocloud",
+      longDescription:
+        "Zeocloud indexes your entire codebase locally, stores vectors in a self-hosted Qdrant instance, and runs language models on your own hardware via Ollama — no API keys, no subscriptions, no cloud calls. It detects your hardware (RAM, GPU, Apple Silicon) and recommends the right model for your machine, remembers conversation context for follow-up questions, understands 40+ languages, respects .gitignore, and blocks indexing of sensitive directories. Ask in English or Hindi and get answers in the same language. Published on PyPI as `zeocloud`, installable via pipx, pip, or uv.",
+      rating: 5,
+    },
+    {
       title: "Imgo",
       description:
         "An open-source alternative to ImageKit and Cloudinary. Self-host once, own forever — upload images, serve on-the-fly URL transformations, protect with API keys and signed URLs. $0/month.",
@@ -362,19 +372,21 @@ const Projects: React.FC = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className="section-padding"
+      className="section-padding border-t-2 border-ink"
     >
       <div className="container mx-auto container-padding max-w-6xl">
-        <div className="text-center mb-20">
-          <p className="text-sm font-medium text-muted-foreground tracking-wide uppercase mb-4">
-            Selected Work
-          </p>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-6">
-            Featured Projects
-          </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-            A collection of projects showcasing expertise in full-stack development, 
-            cloud infrastructure, and scalable application design.
+        <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <p className="text-xs font-mono font-bold text-coral tracking-widest uppercase mb-3">
+              /02 — Case Studies
+            </p>
+            <h2 className="font-display text-4xl md:text-6xl tracking-tight">
+              Selected Work
+            </h2>
+          </div>
+          <p className="max-w-md text-ink/70 leading-relaxed">
+            {projectsData.length}+ shipped projects spanning full-stack development,
+            AI systems, and scalable cloud infrastructure.
           </p>
         </div>
 
@@ -408,7 +420,7 @@ const Projects: React.FC = () => {
         {visibleProjects < projectsData.length && (
           <div className="mt-16 text-center">
             <button
-              className="inline-flex items-center gap-2 px-6 py-3 border border-primary transition-all hover:bg-primary hover:text-primary-foreground"
+              className="brutal-btn"
               onClick={handleViewMore}
             >
               View More

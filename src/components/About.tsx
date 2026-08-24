@@ -10,7 +10,7 @@ const About: React.FC = () => {
   });
 
   const skills = [
-    "GenAI", "Node.js", "Python/Django", "FastAPI", "React", "Next.js", "Docker",
+    "Gen AI", "Node.js", "Python/Django", "FastAPI", "React", "Next.js", "Docker",
     "Kubernetes", "Kafka", "WebSockets", "MongoDB", "Postgres",
     "Prisma ORM", "TypeScript", "JavaScript", "AWS", "firebase", "Redis","Git/Github"
   ];
@@ -92,12 +92,29 @@ const About: React.FC = () => {
                 Philosophy
               </h4>
               <p className="text-ink/70 mb-4 leading-relaxed">
-                Passionate about building high-performance applications and fostering collaborative
-                engineering culture. Believer in clean code, thoughtful architecture, and continuous learning.
+                Clean code, thoughtful architecture, continuous learning — earned by shipping real
+                systems and fixing real edge cases, not patching around them.
               </p>
               <p className="text-ink/70 leading-relaxed">
-                Development philosophy focuses on creating scalable solutions that solve real problems
-                while maintaining code quality and exceptional user experience.
+                Focused on solving real problems, not hypothetical ones — increasingly with GenAI
+                and LLMs, built in ways that are genuinely useful, not just bolted on.
+              </p>
+            </div>
+
+            <div
+              className={cn(
+                "brutal-card p-8 mt-10 opacity-0 transform translate-y-4",
+                inView && "opacity-100 translate-y-0"
+              )}
+              style={{ transitionDelay: "0.8s" }}
+            >
+              <h4 className="font-display text-2xl mb-4 tracking-tight">
+                Cloud &amp; Infrastructure
+              </h4>
+              <p className="text-ink/70 leading-relaxed">
+                Specialized in designing and implementing cloud infrastructure on AWS, with expertise
+                in containerization using Docker and Kubernetes, robust CI/CD pipelines for seamless
+                deployment, and GPU-backed infrastructure for running AI/ML workloads in production.
               </p>
             </div>
           </div>
@@ -129,22 +146,6 @@ const About: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div
-              className={cn(
-                "brutal-card p-8 mt-10 opacity-0 transform translate-y-4",
-                inView && "opacity-100 translate-y-0"
-              )}
-              style={{ transitionDelay: "0.8s" }}
-            >
-              <h4 className="font-display text-2xl mb-4 tracking-tight">
-                Cloud &amp; Infrastructure
-              </h4>
-              <p className="text-ink/70 leading-relaxed">
-                Specialized in designing and implementing cloud infrastructure on AWS, with expertise
-                in containerization using Docker and Kubernetes, and robust CI/CD pipelines for seamless deployment.
-              </p>
             </div>
           </div>
         </div>

@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
       <div className="container mx-auto container-padding max-w-4xl">
         <div className="mb-20">
           <p className="text-xs font-mono font-bold text-coral tracking-widest uppercase mb-3">
-            /04 — Contact
+            /05 — Contact
           </p>
           <h2 className="font-display text-4xl md:text-6xl tracking-tight mb-6">
             Let's Talk

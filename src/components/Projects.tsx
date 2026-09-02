@@ -187,23 +187,6 @@ const Projects: React.FC = () => {
       rating: 4,
     },
     {
-      title: "Colabrix (Building...)",
-      description:
-        "Your AI copilot for project management. Automate workflows, predict bottlenecks, and ship faster with intelligent task orchestration and real-time team sync.",
-      techStack: [
-        "Node.js",
-        "Next.js",
-        "React",
-        "GenAI",
-        "Socket.io",
-        "GitHub Integration",
-      ],
-      liveLink: "https://colabrix.com",
-      longDescription:
-        "Imagine a project management tool that thinks like your best teammate. Colabrix uses cutting-edge AI to automatically prioritize tasks, predict project risks, and suggest optimal workflows based on your team's patterns. With real-time collaboration powered by WebSockets, seamless GitHub integration for developer workflows, and intelligent insights that actually move the needle, Colabrix eliminates the busywork so your team can focus on building great products. No more status meetings, no more missed deadlines—just pure productivity.",
-      rating: 0,
-    },
-    {
       title: "Tradescribe.in",
       description:
         "A stock data management and analysis platform designed to help users track, manage, and analyze market data efficiently.",
@@ -430,7 +413,7 @@ const Projects: React.FC = () => {
         <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-xs font-mono font-bold text-coral tracking-widest uppercase mb-3">
-              /02 — Case Studies
+              /03 — Case Studies
             </p>
             <h2 className="font-display text-4xl md:text-6xl tracking-tight">
               Selected Work

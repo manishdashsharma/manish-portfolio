@@ -47,7 +47,7 @@ const About: React.FC = () => {
       <div className="container mx-auto container-padding max-w-6xl">
         <div className="mb-20">
           <p className="text-xs font-mono font-bold text-coral tracking-widest uppercase mb-3">
-            /03 — About
+            /04 — About
           </p>
           <h2 className="font-display text-4xl md:text-6xl tracking-tight mb-6">
             Background &amp; Expertise

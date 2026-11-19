@@ -28,14 +28,13 @@ const products: Product[] = [
   {
     name: 'Doodlix',
     logo: '/doodlix-logo.png',
-    badge: 'Open Source',
+    badge: 'Live',
     badgeIcon: <Sparkles size={10} />,
     tagline: 'sketch_your_ideas();',
     description:
       'A free, hand-drawn whiteboard with Lixi, an AI assistant that turns plain words into editable diagrams — running on your own API key from any OpenAI-compatible provider.',
     techStack: ['Node.js', 'Express', 'MongoDB', 'Next.js', 'GenAI'],
     liveLink: 'https://doodlix.io',
-    githubLink: 'https://github.com/manishdashsharma/doodlix',
   },
 ];
 
